@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     android:layout_gravity="center_vertical"
     tools:context=".ContactListFragment">
 
@@ -12,13 +13,12 @@
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_30ssp"
+        android:layout_height="@dimen/_35ssp"
         android:layout_weight="3"
-android:gravity="center_vertical"
-        android:padding="@dimen/_3ssp"
+        android:gravity="center_vertical"
+        android:padding="@dimen/_5ssp"
         android:orientation="horizontal"
         android:background="@color/purple_700"
-
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -28,7 +28,7 @@ android:gravity="center_vertical"
 
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="start"
+            android:layout_gravity="center_vertical"
             android:layout_weight="1"
             android:text="Name"
             android:background="@color/purple_700"
@@ -78,6 +78,7 @@ android:gravity="center_vertical"
         android:layout_marginTop="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:paddingBottom="@dimen/_50ssp"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
     </androidx.recyclerview.widget.RecyclerView>

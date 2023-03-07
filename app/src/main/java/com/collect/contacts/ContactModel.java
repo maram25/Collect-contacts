@@ -7,6 +7,17 @@ public class ContactModel {
 	private String Name;
 	@SerializedName("phone")
 	private String  phone;
+	@SerializedName("image")
+	private String  image;
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
 	@SerializedName("Email")
 	private String  Email;
 

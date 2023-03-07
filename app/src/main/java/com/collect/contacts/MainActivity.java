@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -27,10 +28,17 @@ public class MainActivity extends AppCompatActivity {
 
 			}
 		});
+		contextOfApplication = getApplicationContext();
 
 
 
 
+
+	}
+	public static Context contextOfApplication;
+	public static Context getContextOfApplication()
+	{
+		return contextOfApplication;
 	}
 
 	public void goToFragment(Fragment fragment) {

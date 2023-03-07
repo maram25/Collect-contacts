@@ -5,16 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/activity_main"
+    android:background="@color/white"
     tools:context=".MainActivity">
 
 
     <TextView
         android:id="@+id/Contact"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="@dimen/_30ssp"
-        android:layout_marginTop="@dimen/_5ssp"
-        android:layout_marginEnd="@dimen/_15ssp"
-        android:layout_marginBottom="@dimen/_5ssp"
+  android:layout_margin="@dimen/_20ssp"
         android:background="@color/purple_700"
         android:gravity="center"
         android:text="Show Contact"
