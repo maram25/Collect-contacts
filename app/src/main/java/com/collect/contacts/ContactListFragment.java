@@ -2,6 +2,7 @@ package com.collect.contacts;
 
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.Manifest;
@@ -75,6 +76,8 @@ public class ContactListFragment extends Fragment {
 
 		Definations(root);
 		collect();
+		Observers();
+
 //		ContactModel contactModel=new ContactModel();
 //		contactModel.setEmail("test");
 //		contactModel.setPhone("011535985");
@@ -100,6 +103,8 @@ public class ContactListFragment extends Fragment {
 			list_item.setLayoutManager(layoutManager2);
 			list_item.setHasFixedSize(true);
 			list_item.setAdapter(adapter2);
+
+			//mViewModel.SendContact();
 			Log.e("List", contactList.size() + "");
 
 		} else {
@@ -112,6 +117,19 @@ public class ContactListFragment extends Fragment {
 		return  root;
 	}
 
+	private void Observers() {
+
+		mViewModel.ContactList.observe(getViewLifecycleOwner(), new Observer<ContactModel>() {
+			@Override
+			public void onChanged(ContactModel contactModel) {
+
+
+            Toast.makeText(getContext(), " send contact success", Toast.LENGTH_LONG).show();
+
+			}
+		});
+	}
+
 	private void Definations(View root) {
 		list_item = root.findViewById(R.id.list_item);
 
@@ -120,43 +138,6 @@ public class ContactListFragment extends Fragment {
 
 
 	}
-//	@SuppressLint("Range")
-//	@Override
-//	public void onActivityResult(int reqCode, int resultCode, Intent data) {
-//		super.onActivityResult(reqCode, resultCode, data);
-//
-//		switch (reqCode) {
-//			case (PICK_CONTACT) :
-//				if (resultCode == Activity.RESULT_OK) {
-//
-//					Uri contactData = data.getData();
-//					Cursor c =  managedQuery(contactData, null, null, null, null);
-//					if (c.moveToFirst()) {
-//
-//
-//						String id =c.getString(c.getColumnIndexOrThrow(ContactsContract.Contacts._ID));
-//
-//						@SuppressLint("Range") String hasPhone =c.getString(c.getColumnIndex(ContactsContract.Contacts.HAS_PHONE_NUMBER));
-//
-//						if (hasPhone.equalsIgnoreCase("1")) {
-//							Cursor phones = getActivity().getContentResolver().query(
-//									ContactsContract.CommonDataKinds.Phone.CONTENT_URI,null,
-//									ContactsContract.CommonDataKinds.Phone.CONTACT_ID +" = "+ id,
-//									null, null);
-//							phones.moveToFirst();
-//							cNumber = phones.getString(phones.getColumnIndex("data1"));
-//							System.out.println("number is:"+cNumber);
-//						}
-//						@SuppressLint("Range") String name = c.getString(c.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME));
-//
-//
-//					}
-//				}
-//				break;
-//		}
-//	}
-
-
 
 	public class GetContactFromDevice {
 		private static final String TAG  = "GetContactFromDevice";
@@ -218,16 +199,15 @@ public class ContactListFragment extends Fragment {
 		switch (permsRequestCode) {
 
 			case REQUEST_RUNTIME_PERMISSION: {
-				if (grantResults.length > 0
-						&& grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+				if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
 					// you have permission go ahead
-					GetContactFromDevice getContactFromDevice = new GetContactFromDevice();
-					final Contact_listAdapter adapter2 = new Contact_listAdapter(getActivity().getSupportFragmentManager(), getContext(), getContactFromDevice.getContacts(getContext()));
-					LinearLayoutManager layoutManager2 = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
-					list_item.setLayoutManager(layoutManager2);
-					list_item.setHasFixedSize(true);
-					list_item.setAdapter(adapter2);
-					Log.e("List", contactList.size() + "");
+//					GetContactFromDevice getContactFromDevice = new GetContactFromDevice();
+//					final Contact_listAdapter adapter2 = new Contact_listAdapter(getActivity().getSupportFragmentManager(), getContext(), getContactFromDevice.getContacts(getContext()));
+//					LinearLayoutManager layoutManager2 = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
+//					list_item.setLayoutManager(layoutManager2);
+//					list_item.setHasFixedSize(true);
+//					list_item.setAdapter(adapter2);
+					Log.e("ListRequest", contactList.size() + "");
 				} else {
 					// you do not have permission show toast.
 				}

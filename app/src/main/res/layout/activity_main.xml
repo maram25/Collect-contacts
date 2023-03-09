@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/_30ssp"
   android:layout_margin="@dimen/_20ssp"
-        android:background="@color/purple_700"
+        android:background="@color/bink"
         android:gravity="center"
         android:text="Show Contact"
         android:textColor="@color/white"
