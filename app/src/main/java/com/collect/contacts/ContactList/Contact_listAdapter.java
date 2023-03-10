@@ -1,4 +1,4 @@
-package com.collect.contacts;
+package com.collect.contacts.ContactList;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -11,6 +11,10 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+
+import com.collect.contacts.Models.ContactModel;
+import com.collect.contacts.MainActivity;
+import com.collect.contacts.R;
 
 import java.util.ArrayList;
 import java.util.List;

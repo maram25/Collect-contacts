@@ -1,4 +1,4 @@
-package com.collect.contacts;
+package com.collect.contacts.Models;
 
 import com.google.gson.annotations.SerializedName;
 

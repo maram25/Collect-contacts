@@ -1,10 +1,11 @@
-package com.collect.contacts;
+package com.collect.contacts.ContactList;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.collect.contacts.Calls.APIClient;
 import com.collect.contacts.Calls.APIInterface;
+import com.collect.contacts.Models.ContactModel;
 
 import java.util.HashMap;
 
@@ -13,14 +14,8 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class ContactListViewModel extends ViewModel {
-	// TODO: Implement the ViewModel
-
-
 	APIInterface apiInterface;
-
 	MutableLiveData<ContactModel> ContactList = new MutableLiveData<>();
-
-
 
 	public void SendContact() {
 		HashMap<String, Object> PaymentKey = new HashMap<String, Object>();

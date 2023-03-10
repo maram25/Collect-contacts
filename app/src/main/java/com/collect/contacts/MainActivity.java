@@ -9,7 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import java.util.ArrayList;
+import com.collect.contacts.ContactList.ContactListFragment;
 
 public class MainActivity extends AppCompatActivity {
 

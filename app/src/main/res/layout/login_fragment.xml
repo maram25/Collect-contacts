@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:id="@+id/container"
+    android:layout_height="match_parent"
+    tools:context=".Login.LoginFragment">
+
+
+    <RelativeLayout
+        android:visibility="gone"
+        android:id="@+id/Progress"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <include
+            layout="@layout/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </include>
+    </RelativeLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/Layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+
+            android:id="@+id/imageView2"
+            android:layout_width="0dp"
+            android:layout_height="130dp"
+            android:padding="@dimen/_10ssp"
+            android:layout_marginTop="@dimen/_15ssp"
+            android:src="@drawable/call"
+            app:layout_constraintEnd_toEndOf="@id/guideline8"
+            app:layout_constraintStart_toStartOf="@id/guideline7"
+            app:layout_constraintTop_toTopOf="parent">
+
+        </ImageView>
+
+
+        <EditText
+            android:id="@+id/et_Email"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_45ssp"
+            android:layout_marginTop="@dimen/_40ssp"
+            android:background="@drawable/curved_solid_main_color"
+            android:ems="10"
+            android:textColorHint="@color/bink"
+android:textColor="@color/black"
+            android:hint="phone"
+            android:inputType="textPersonName"
+            android:paddingLeft="@dimen/_20ssp"
+            android:paddingRight="@dimen/_20ssp"
+            app:layout_constraintEnd_toStartOf="@+id/guideline6"
+            app:layout_constraintStart_toStartOf="@id/guideline5"
+            app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutpass"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_45ssp"
+            android:layout_gravity="center"
+            app:boxStrokeColor="#FFF"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp"
+            android:layout_marginTop="@dimen/_15ssp"
+            app:boxBackgroundColor="#FFF"
+            android:textColorHint="@color/bink"
+            android:textColor="@color/black"
+            android:background="@android:color/transparent"
+            app:layout_constraintEnd_toStartOf="@+id/guideline6"
+            app:layout_constraintStart_toStartOf="@id/guideline5"
+            app:layout_constraintTop_toBottomOf="@+id/et_Email"
+            app:passwordToggleEnabled="true">
+
+
+        <EditText
+        android:id="@+id/et_password"
+            android:background="@drawable/curved_solid_main_color"
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:ems="5"
+            android:textColorHint="@color/bink"
+            android:paddingRight="@dimen/_20ssp"
+            android:paddingLeft="@dimen/_20ssp"
+            android:gravity="start|center_vertical"
+            android:maxLines="1"
+            android:imeOptions="actionNext"
+            android:singleLine="true"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:textAlignment="viewStart"
+            android:textSize="@dimen/_12ssp"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+        <TextView
+            android:id="@+id/Sign_in"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_40ssp"
+            android:background="@color/bink"
+            android:gravity="center"
+            android:text="Login"
+            android:layout_marginTop="@dimen/_50ssp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_15ssp"
+            app:layout_constraintEnd_toStartOf="@+id/guideline6"
+            app:layout_constraintStart_toStartOf="@id/guideline5"
+            app:layout_constraintTop_toBottomOf="@+id/layoutpass" />
+
+
+
+<!--        <include-->
+<!--            layout="@layout/forget_pass_popup"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent">-->
+
+<!--        </include>-->
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.1" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.90" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.25" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.75" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
