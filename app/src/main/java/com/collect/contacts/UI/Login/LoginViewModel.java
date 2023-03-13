@@ -1,4 +1,4 @@
-package com.collect.contacts.Login;
+package com.collect.contacts.UI.Login;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -46,20 +46,20 @@ public class LoginViewModel extends ViewModel {
 	boolean isEmailValid(CharSequence email) {
 		return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
 	}
-	public boolean Check(String Phone,String Password) {
-		if (Phone.equals(""))
-		{
-			PhoneError.setValue(true);
+	public boolean Check(String Email,String Password) {
+//		if (Phone.equals(""))
+//		{
+//			PhoneError.setValue(true);
+//			return false;
+//		}
+		if (Email.equals("")){
+			EmailError.setValue(true);
 			return false;
 		}
-//		if (Email.equals("")){
-//			EmailError.setValue(true);
-//			return false;
-//		}
-//		if (!isEmailValid(Email)) {
-//			EmailNotValid.setValue(true);
-//			return false;
-//		}
+		if (!isEmailValid(Email)) {
+			EmailNotValid.setValue(true);
+			return false;
+		}
 
 		if (Password.equals(""))
 		{
@@ -69,10 +69,10 @@ public class LoginViewModel extends ViewModel {
 
 		return true;
 	}
-	public void Login(Activity activity, String phone, String Password)     {
+	public void Login(Activity activity, String email, String Password)     {
 		APIInterface apiInterface;
 		apiInterface = APIClient.getClient().create(APIInterface.class);
-		Call<LoginModel> call = apiInterface.Login(Utils.Lang,phone,Password);
+		Call<LoginModel> call = apiInterface.Login(Utils.Lang,email,Password);
 		 call.enqueue(new Callback<LoginModel>() {
 			 @Override
 			 public void onResponse(Call<LoginModel> call, Response<LoginModel> response) {
@@ -85,12 +85,12 @@ public class LoginViewModel extends ViewModel {
 					 Ed.putBoolean("User_Login", true);
 					 Ed.putString("E_mail", resource.getData().getUser().getOriginal().getEmail());
 					 Ed.putString("Psw", Password);
-					 Ed.putString("Name", resource.getData().getUser().getOriginal().getFirst_name());
+					 Ed.putString("Name", resource.getData().getUser().getOriginal().getName());
+					 Ed.putString("balance", resource.getData().getUser().getOriginal().getBalance());
 
 
 					 Utils.Token = resource.getData().getUser().getOriginal().getAccess_token();
-					 Utils.NameF=resource.getData().getUser().getOriginal().getFirst_name();
-					 Utils.NameL=resource.getData().getUser().getOriginal().getLast_name();
+					 Utils.Name=resource.getData().getUser().getOriginal().getName();
 					 Utils.Phone=resource.getData().getUser().getOriginal().getPhone();
 					 Utils.Email=resource.getData().getUser().getOriginal().getEmail();
 

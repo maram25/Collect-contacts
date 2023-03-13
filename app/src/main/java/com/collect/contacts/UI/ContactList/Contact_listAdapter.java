@@ -1,4 +1,4 @@
-package com.collect.contacts.ContactList;
+package com.collect.contacts.UI.ContactList;
 
 import android.content.Context;
 import android.view.LayoutInflater;

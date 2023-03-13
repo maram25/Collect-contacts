@@ -11,7 +11,8 @@ import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.util.Log;
 
-import com.collect.contacts.Login.LoginFragment;
+
+import com.collect.contacts.UI.Login.LoginFragment;
 
 import java.util.Locale;
 
@@ -23,7 +24,6 @@ public class SignActivity extends AppCompatActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_sign);
 		try {
-
 			path = getIntent().getStringExtra("ShippingId");
 			Log.e("null",path + " mkl;");
 
@@ -37,9 +37,7 @@ public class SignActivity extends AppCompatActivity {
 
 			SetAppLocale(Lang);
 		}else if (savedInstanceState == null) {
-			getSupportFragmentManager().beginTransaction()
-					.replace(R.id.container, LoginFragment.newInstance())
-					.commitNow();
+			getSupportFragmentManager().beginTransaction().replace(R.id.container, LoginFragment.newInstance()).commitNow();
 		}
 
 

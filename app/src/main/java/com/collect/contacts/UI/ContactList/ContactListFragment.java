@@ -1,4 +1,4 @@
-package com.collect.contacts.ContactList;
+package com.collect.contacts.UI.ContactList;
 
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;

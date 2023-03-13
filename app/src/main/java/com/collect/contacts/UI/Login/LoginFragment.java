@@ -1,4 +1,4 @@
-package com.collect.contacts.Login;
+package com.collect.contacts.UI.Login;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -31,16 +30,13 @@ import com.collect.contacts.R;
 public class LoginFragment extends Fragment {
 
 	private LoginViewModel mViewModel;
-
-
 	TextView ForgetPassword;
 	String path;
 
 	EditText EmailAddress;
 
-	TextView SignUp, Login, Skip_Registration, Send_now;
-	ConstraintLayout ForgetPassPopup;
-	EditText phone, Password;
+	TextView SignUp, Login;
+	EditText Email, Password;
 	SignActivity signActivity;
 	ConstraintLayout Layout;
 	RelativeLayout Progrees;
@@ -86,8 +82,7 @@ public class LoginFragment extends Fragment {
 		if (Token != null) {
 			Utils.Token = Token;
 			Utils.Lang = Lang;
-			Utils.NameF = Name;
-			Utils.NameL = Name;
+			Utils.Name = Name;
 			Utils.Phone = Phone;
 			Utils.User_Login = User_Login;
 			Intent intent = new Intent(getContext(), MainActivity.class);
@@ -164,13 +159,7 @@ public class LoginFragment extends Fragment {
 				EndProgress();
 			}
 		});
-//		mViewModel.Forget_pass.observe(getViewLifecycleOwner(), new Observer<Boolean>() {
-//			@Override
-//			public void onChanged(Boolean aBoolean) {
-//				goToFragment(new ResetPasswordFragment());
-//				EndProgress();
-//			}
-//		});
+
 
 
 		mViewModel.SomeThingWrong.observe(getViewLifecycleOwner(), new Observer<Boolean>() {
@@ -190,44 +179,28 @@ public class LoginFragment extends Fragment {
 			@Override
 			public void onClick(View view) {
 
-              /*  Intent i = new Intent(getContext(), MainActivity.class);
+                Intent i = new Intent(getContext(), MainActivity.class);
                 Utils.User_Login=true;
                 i.putExtra("User_Login", true);
                 startActivity(i);
-                getActivity().finish();*/
+                getActivity().finish();
 
 
-				if (mViewModel.Check(phone.getText().toString(), Password.getText().toString())) {
+				if (mViewModel.Check(Email.getText().toString(), Password.getText().toString())) {
 					StartProgress();
-					mViewModel.Login(signActivity, phone.getText().toString(), Password.getText().toString());
+					mViewModel.Login(signActivity, Email.getText().toString(), Password.getText().toString());
 
 				}
 			}
 		});
-//
-//		SignUp.setOnClickListener(new View.OnClickListener() {
-//			@Override
-//			public void onClick(View v) {
-//				goToFragment(new SignUpFragment());
-//			}
-//		});
-		Skip_Registration.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View view) {
-				Intent i = new Intent(getContext(), MainActivity.class);
-				startActivity(i);
-				getActivity().finish();
 
-				//goToFragment(new HomeFragment());
 
-			}
-		});
 	}
 
 	private void Definations(View root) {
 		Login = root.findViewById(R.id.Sign_in);
 		Password = root.findViewById(R.id.et_password);
-		phone = root.findViewById(R.id.phone);
+		Email = root.findViewById(R.id.et_Email);
 		Layout = root.findViewById(R.id.Layout);
 		Progrees = root.findViewById(R.id.Progress);
 

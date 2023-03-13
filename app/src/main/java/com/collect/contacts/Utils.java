@@ -9,8 +9,7 @@ Utils {
     public static String Lang;
     public static Boolean User_Login=false;
     public static String Phone ="";
-    public static String NameF ="";
-    public static String NameL ="";
+    public static String Name ="";
     public static String Email ="";
     public static String Token ="";
 

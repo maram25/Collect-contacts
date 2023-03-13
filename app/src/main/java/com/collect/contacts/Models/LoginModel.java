@@ -2,6 +2,9 @@ package com.collect.contacts.Models;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class LoginModel {
 
     public Data getData() {
@@ -43,20 +46,17 @@ public class LoginModel {
             private Original original;
 
             public class Original {
-            @SerializedName("domain_id")
-            private int domain_id;
-            @SerializedName("first_name")
-            private String first_name;
-            @SerializedName("last_name")
-            private String last_name;
-            @SerializedName("email")
-            private String email;
-            @SerializedName("phone")
-            private String phone;
 
-            @SerializedName("access_token")
-            private String access_token;
-
+                @SerializedName("domain_id")
+                private int domain_id;
+                @SerializedName("name")
+                private String name;
+                @SerializedName("email")
+                private String email;
+                @SerializedName("phone")
+                private String phone;
+                @SerializedName("balance")
+                private String balance;
 
                 public int getDomain_id() {
                     return domain_id;
@@ -66,20 +66,12 @@ public class LoginModel {
                     this.domain_id = domain_id;
                 }
 
-                public String getFirst_name() {
-                    return first_name;
+                public String getName() {
+                    return name;
                 }
 
-                public void setFirst_name(String first_name) {
-                    this.first_name = first_name;
-                }
-
-                public String getLast_name() {
-                    return last_name;
-                }
-
-                public void setLast_name(String last_name) {
-                    this.last_name = last_name;
+                public void setName(String name) {
+                    this.name = name;
                 }
 
                 public String getEmail() {
@@ -98,6 +90,14 @@ public class LoginModel {
                     this.phone = phone;
                 }
 
+                public String getBalance() {
+                    return balance;
+                }
+
+                public void setBalance(String balance) {
+                    this.balance = balance;
+                }
+
                 public String getAccess_token() {
                     return access_token;
                 }
@@ -105,10 +105,48 @@ public class LoginModel {
                 public void setAccess_token(String access_token) {
                     this.access_token = access_token;
                 }
-            }
-            }
+
+                public List<String> getTelephone_networks() {
+                    return telephone_networks;
+                }
+
+                public void setTelephone_networks(List<String> telephone_networks) {
+                    this.telephone_networks = telephone_networks;
+                }
+
+                @SerializedName("access_token")
+                private String access_token;
+                @SerializedName("telephone_networks")
+                List<String> telephone_networks = new ArrayList<>();
 
 
+                @SerializedName("sender_ids")
+                List<IDs> sender_ids = new ArrayList<>();
+
+                public List<IDs> getSender_ids() {
+                    return sender_ids;
+                }
+
+                public void setSender_ids(List<IDs> sender_ids) {
+                    this.sender_ids = sender_ids;
+                }
+
+                public class IDs {
+                    @SerializedName("name")
+                    private String name;
+
+                    public String getName() {
+
+                        return name;
+                    }
+
+                    public void setName(String name) {
+                        this.name = name;
+                    }
+                }
+            }
+
+        }
 
         }
 

@@ -27,7 +27,7 @@ public class APIClient {
                 .create();
 
         retrofit = new Retrofit.Builder()
-                .baseUrl("https://7afla.app/")
+                .baseUrl("https://test.mysmslogin.com/")
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .client(client)
                 .build();
