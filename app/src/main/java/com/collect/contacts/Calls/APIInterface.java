@@ -26,7 +26,6 @@ APIInterface {
     @POST("api/user/login")
     @Headers({"Accept: application/json"})
     Call<LoginModel> Login(
-            @Field("lange") String Locale,
             @Field("email") String email,
             @Field("password") String password
     );
@@ -55,7 +54,7 @@ APIInterface {
     @GET("api/user/profile")
     @Headers({"Accept: application/json"})
     Call<UserProfileModel> UserProfile(
-            @Header("authorization") String Token
+            @Header("Authorization") String Token
     );
 
 

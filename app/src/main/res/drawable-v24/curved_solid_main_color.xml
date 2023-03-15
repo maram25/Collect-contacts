@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:layout_width="match_parent">
 
-    <corners android:radius="@dimen/_10ssp">
+    <corners android:radius="@dimen/_15ssp">
 
     </corners>
     <stroke

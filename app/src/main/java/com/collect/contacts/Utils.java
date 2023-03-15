@@ -3,6 +3,9 @@ package com.collect.contacts;
 
 import android.content.Context;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class
 Utils {
     public static Context context;
@@ -12,6 +15,12 @@ Utils {
     public static String Name ="";
     public static String Email ="";
     public static String Token ="";
+    public static String Sender;
+    public static String SMS;
+    public static List<String> Phones = new ArrayList<>();
+
+
+
 
 
     public static String Fcm_Token ="";

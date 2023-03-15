@@ -72,7 +72,7 @@ public class LoginViewModel extends ViewModel {
 	public void Login(Activity activity, String email, String Password)     {
 		APIInterface apiInterface;
 		apiInterface = APIClient.getClient().create(APIInterface.class);
-		Call<LoginModel> call = apiInterface.Login(Utils.Lang,email,Password);
+		Call<LoginModel> call = apiInterface.Login(email,Password);
 		 call.enqueue(new Callback<LoginModel>() {
 			 @Override
 			 public void onResponse(Call<LoginModel> call, Response<LoginModel> response) {

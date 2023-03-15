@@ -1,5 +1,6 @@
 package com.collect.contacts.UI.ContactList;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.lifecycle.Observer;
@@ -31,33 +32,34 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.collect.contacts.Models.ContactModel;
 import com.collect.contacts.MainActivity;
 import com.collect.contacts.R;
+import com.collect.contacts.Utils;
 
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.List;
 
 public class ContactListFragment extends Fragment {
 
 	private ContactListViewModel mViewModel;
 	 RecyclerView list_item;
+	  TextView SendSMS;
+	List<String> contact = new ArrayList<>();
+
+
+	ConstraintLayout Layout;
+	RelativeLayout Progrees;
 
 	public static ArrayList<ContactModel> contactList = new ArrayList<>();
 
-
-	static final int PICK_CONTACT=1;
-	static final int RESULT_PICK_CONTACT=1;
-	 MainActivity mainActivity;
-	Context context;
 	private static final int REQUEST_RUNTIME_PERMISSION = 123;
-	String[] permissons = {Manifest.permission.READ_CONTACTS,
-			Manifest.permission.WRITE_CONTACTS,
-			Manifest.permission.READ_CONTACTS,
-			Manifest.permission.READ_PHONE_STATE,
-			Manifest.permission.READ_CALL_LOG};
+	String[] permissons = {Manifest.permission.READ_CONTACTS, Manifest.permission.WRITE_CONTACTS, Manifest.permission.READ_CONTACTS, Manifest.permission.READ_PHONE_STATE, Manifest.permission.READ_CALL_LOG};
 
 	public static ContactListFragment newInstance() {
 		return new ContactListFragment();
@@ -75,12 +77,15 @@ public class ContactListFragment extends Fragment {
 		Definations(root);
 		collect();
 		Observers();
+		Actions();
 
 //		ContactModel contactModel=new ContactModel();
 //		contactModel.setEmail("test");
 //		contactModel.setPhone("011535985");
 //		contactModel.setName("maram");
 //		contactList.add(contactModel);
+
+		contact.add("01153919837");
 
 
 
@@ -94,6 +99,8 @@ public class ContactListFragment extends Fragment {
 
 
 		if (CheckPermission(getActivity(), permissons[0])) {
+			 StartProgress();
+
 			GetContactFromDevice getContactFromDevice = new GetContactFromDevice();
 
 			final Contact_listAdapter adapter2 = new Contact_listAdapter(getActivity().getSupportFragmentManager(), getContext(), getContactFromDevice.getContacts(getContext()));
@@ -115,13 +122,23 @@ public class ContactListFragment extends Fragment {
 		return  root;
 	}
 
-	private void Observers() {
+	private void Actions() {
+		 SendSMS.setOnClickListener(new View.OnClickListener() {
+			 @Override
+			 public void onClick(View view) {
+
+			 	//mViewModel.SendContact(Utils.Sender,Utils.Phones,Utils.SMS);
+			 	mViewModel.SendContact(Utils.Sender,contact,Utils.SMS);
+			 }
+		 });
+	}
+
+		private void Observers() {
+
 
 		mViewModel.ContactList.observe(getViewLifecycleOwner(), new Observer<ContactModel>() {
 			@Override
 			public void onChanged(ContactModel contactModel) {
-
-
             Toast.makeText(getContext(), " send contact success", Toast.LENGTH_LONG).show();
 
 			}
@@ -129,7 +146,10 @@ public class ContactListFragment extends Fragment {
 	}
 
 	private void Definations(View root) {
+		Layout = root.findViewById(R.id.Layout);
+		Progrees = root.findViewById(R.id.Progress);
 		list_item = root.findViewById(R.id.list_item);
+		SendSMS = root.findViewById(R.id.SendSMS);
 
 	}
 	private void collect() {
@@ -164,16 +184,19 @@ public class ContactListFragment extends Fragment {
 							ContactModel info = new ContactModel();
 							info.setName( cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME)));
 							info.setPhone(cursorInfo.getString(cursorInfo.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER)));
+							Utils.Phones.add(cursorInfo.getString(cursorInfo.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER)));
 							//info.setEmail(cursorInfo.getString(cursorInfo.getColumnIndex(ContactsContract.CommonDataKinds.Email.DATA)));
 							info.setImage( pURI.toString());
 							list.add(info);
+
+
+							EndProgress();
 
 							Log.d("GetContactFromDevice", "getContacts: " + info.getName());
 							Log.d("GetContactFromDevice", "getContacts: " + info.getPhone());
 
 						//	Log.d("GetContactFromDevice", "getEmail: " + info.getEmail());
 						}
-
 						cursorInfo.close();
 					}
 				}
@@ -234,4 +257,15 @@ public class ContactListFragment extends Fragment {
 			return false;
 		}
 	}
+
+	public void StartProgress() {
+		Progrees.setVisibility(View.VISIBLE);
+		Layout.setVisibility(View.GONE);
+	}
+
+	public void EndProgress() {
+		Progrees.setVisibility(View.GONE);
+		Layout.setVisibility(View.VISIBLE);
+	}
+
 }

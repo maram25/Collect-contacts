@@ -5,11 +5,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/light_gray"
     android:layout_gravity="center_vertical"
-    tools:context=".ContactList.ContactListFragment">
+    tools:context="UI.ContactList.ContactListFragment">
 
-
+    <RelativeLayout
+        android:visibility="gone"
+        android:id="@+id/Progress"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <include
+            layout="@layout/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </include>
+    </RelativeLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/Layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
@@ -17,6 +31,7 @@
         android:layout_weight="3"
         android:gravity="center_vertical"
         android:padding="@dimen/_5ssp"
+
         android:orientation="horizontal"
         android:background="@color/bink"
         app:layout_constraintEnd_toEndOf="parent"
@@ -57,7 +72,7 @@
             android:layout_marginStart="@dimen/_3ssp"
             android:layout_weight="1"
             android:gravity="center_vertical"
-
+android:visibility="gone"
             android:text="Email"
             android:textColor="@color/white"
             android:textSize="@dimen/_10ssp">
@@ -79,5 +94,25 @@
 
     </androidx.recyclerview.widget.RecyclerView>
 
+    <TextView
+        android:id="@+id/SendSMS"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_35ssp"
+        android:layout_margin="@dimen/_40ssp"
+        android:background="@drawable/curved_solid_main_color"
+        android:backgroundTint="@color/bink"
+        android:gravity="center"
+        android:padding="3dp"
+        android:text="Send SMS"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_15ssp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_editor_absoluteX="26dp">
+
+    </TextView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,11 +1,13 @@
 package com.collect.contacts;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -19,13 +21,21 @@ public class MainActivity extends AppCompatActivity {
 
 	public SharedPreferences sp;
 	public SharedPreferences.Editor Ed;
+	DrawerLayout drawer;
+
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LOCKED);
 
+		if (savedInstanceState == null) {
+			getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment_activity_main, new HomeFragment()).commit();
+		}
 		SetUp();
+		drawer = findViewById(R.id.drawer_layout);
+
 	}
 
 
@@ -41,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
 		Ed.commit();
 		Log.d("Lang ",Utils.Lang +"" );
 
-		if (!Utils.User_Login) {
+		if (Utils.User_Login) {
 			goToFragment(new HomeFragment());
 
 		}

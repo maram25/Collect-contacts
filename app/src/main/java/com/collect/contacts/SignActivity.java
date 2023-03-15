@@ -23,20 +23,15 @@ public class SignActivity extends AppCompatActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_sign);
-		try {
-			path = getIntent().getStringExtra("ShippingId");
-			Log.e("null",path + " mkl;");
 
-		}catch (NullPointerException e){
-			Log.e("null"," nu ll ");
-		}
 		if (getIntent().getBooleanExtra("Crash",false)){
 			Log.e("Crash","Crash");
 			SharedPreferences sp1 = getSharedPreferences("Login", MODE_PRIVATE);
 			String Lang = sp1.getString("Lang", "en");
 
-			SetAppLocale(Lang);
+			SetAppLocale("en");
 		}else if (savedInstanceState == null) {
+			Log.e("LoginFragment","LoginFragment");
 			getSupportFragmentManager().beginTransaction().replace(R.id.container, LoginFragment.newInstance()).commitNow();
 		}
 

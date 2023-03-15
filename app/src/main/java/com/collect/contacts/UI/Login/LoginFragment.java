@@ -86,7 +86,6 @@ public class LoginFragment extends Fragment {
 			Utils.Phone = Phone;
 			Utils.User_Login = User_Login;
 			Intent intent = new Intent(getContext(), MainActivity.class);
-			if (path != null)
 			startActivity(intent);
 			getActivity().finish();
 		}
@@ -98,12 +97,14 @@ public class LoginFragment extends Fragment {
 			@Override
 			public void onChanged(Boolean aBoolean) {
 				if (aBoolean) {
+					Log.e("Login_api", Utils.Token + "");
 					Intent i = new Intent(getContext(), MainActivity.class);
 					Utils.User_Login = true;
 					i.putExtra("User_Login", true);
 					startActivity(i);
 					getActivity().finish();
 					EndProgress();
+
 				}
 			}
 		});
@@ -159,9 +160,6 @@ public class LoginFragment extends Fragment {
 				EndProgress();
 			}
 		});
-
-
-
 		mViewModel.SomeThingWrong.observe(getViewLifecycleOwner(), new Observer<Boolean>() {
 			@Override
 			public void onChanged(Boolean aBoolean) {
@@ -169,8 +167,6 @@ public class LoginFragment extends Fragment {
                 EndProgress();
 			}
 		});
-
-
 	}
 
 	private void Actions() {
@@ -179,11 +175,11 @@ public class LoginFragment extends Fragment {
 			@Override
 			public void onClick(View view) {
 
-                Intent i = new Intent(getContext(), MainActivity.class);
-                Utils.User_Login=true;
-                i.putExtra("User_Login", true);
-                startActivity(i);
-                getActivity().finish();
+//                Intent i = new Intent(getContext(), MainActivity.class);
+//                Utils.User_Login=true;
+//                i.putExtra("User_Login", true);
+//                startActivity(i);
+//                getActivity().finish();
 
 
 				if (mViewModel.Check(Email.getText().toString(), Password.getText().toString())) {
