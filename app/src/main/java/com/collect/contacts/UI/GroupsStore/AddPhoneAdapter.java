@@ -2,6 +2,8 @@ package com.collect.contacts.UI.GroupsStore;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,20 +23,21 @@ import com.collect.contacts.Utils;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 public class AddPhoneAdapter extends RecyclerView.Adapter<AddPhoneAdapter.ViewHolder>  {
 
 	MainActivity mainActivity;
 	FragmentManager fragmentManager;
 	Context context;
-	private ArrayList<String> Phones = new ArrayList<>();
+	private List<String> Phones = new ArrayList<>();
    String Time;
 	int k = 0;
 	int mHour;
 	int mMinute;
 	String date_time = "";
 
-	public AddPhoneAdapter(Context context, ArrayList<String> names, FragmentManager fragmentManager) {
+	public AddPhoneAdapter(Context context, List<String> names, FragmentManager fragmentManager) {
 		this.Phones = names;
 		this.context = context;
 		this.fragmentManager = fragmentManager;
@@ -57,11 +60,35 @@ public class AddPhoneAdapter extends RecyclerView.Adapter<AddPhoneAdapter.ViewHo
 			public void onClick(View view) {
 				Phones.remove(position);
 				notifyItemRemoved(position);
-				Utils.GroupsPhones.remove(position);
 				notifyItemRangeChanged(position, Phones.size());
+//					 Utils.GroupsPhones.remove(position);
+//
+
 			}
 		});
-		 Utils.GroupsPhones.add(holder.Phone.getText().toString());
+		holder.Phone.setText(Phones.get(position));
+		holder.Phone.addTextChangedListener(new TextWatcher() {
+			@Override
+			public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+			}
+
+			@Override
+			public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+			}
+
+			@Override
+			public void afterTextChanged(Editable editable) {
+				Phones.add(editable.toString());
+				Utils.GroupsPhones.add(editable.toString());
+				Log.e("Phone", (holder.Phone.getText()) + "");
+
+			}
+		});
+//		 Utils.GroupsPhones.add(String.valueOf(holder.Phone.getText()));
+//		Log.e("Phone", (holder.Phone.getText()) + "");
+
 
 	}
 

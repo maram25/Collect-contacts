@@ -27,7 +27,7 @@ public class GroupsAdapter extends RecyclerView.Adapter<GroupsAdapter.ViewHolder
     Context context;
     MainActivity activity;
 
-    public GroupsAdapter(FragmentManager fragmentManager, Context context, List<GroupsModel.Data.Groups> Contact) {
+    public GroupsAdapter(FragmentManager fragmentManager, Context context, List<GroupsModel.Data.Groups> Groups) {
         this.context = context;
         this.fragmentManager = fragmentManager;
         this.Groups = Groups;

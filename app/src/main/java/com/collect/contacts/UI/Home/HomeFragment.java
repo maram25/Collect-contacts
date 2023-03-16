@@ -106,7 +106,12 @@ public class HomeFragment extends Fragment {
 
 			}
 		});
-
+		mViewModel.tryAgain.observe(getViewLifecycleOwner(), new Observer<Boolean>() {
+			@Override
+			public void onChanged(Boolean aBoolean) {
+				mViewModel.lOGOUT();
+			}
+		});
 		mViewModel.LOGOUT.observe(getViewLifecycleOwner(), new Observer<Boolean>() {
 			@Override
 			public void onChanged(Boolean aBoolean) {
@@ -159,6 +164,8 @@ public class HomeFragment extends Fragment {
 
 			}
 		});
+
+
 		LOGOUT.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {

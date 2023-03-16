@@ -18,6 +18,7 @@ public class HomeViewModel extends ViewModel {
 
 	APIInterface apiInterface;
 	MutableLiveData<Boolean> LOGOUT = new MutableLiveData<>();
+	MutableLiveData<Boolean> tryAgain = new MutableLiveData<>();
 	MutableLiveData<UserProfileModel.Data.User> User = new MutableLiveData<>();
 	public void UserProfile() {
 		apiInterface = APIClient.getClient().create(APIInterface.class);
@@ -29,6 +30,12 @@ public class HomeViewModel extends ViewModel {
 
 				 if (response.isSuccessful()) {
 					 User.setValue(resource.getData().getUser());
+				 }
+				 else if (response.code() == 400){
+					 tryAgain.setValue(true);
+				 }
+ else if (response.code() == 500){
+					 tryAgain.setValue(true);
 				 }
 
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_margin="@dimen/_5ssp"
     android:layout_height="wrap_content">
     <ImageView
@@ -13,18 +13,21 @@
         app:layout_constraintBottom_toBottomOf="parent"
 
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/black">
 
     </ImageView>
+
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="@dimen/_80ssp"
-        android:layout_height="@dimen/_26ssp"
-        android:layout_marginStart="@dimen/_2ssp"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_27ssp"
+        android:layout_marginStart="@dimen/_20ssp"
+        android:layout_marginEnd="@dimen/_5ssp"
         android:background="@drawable/curved_solid_main_color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/delete"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+     >
 
         <EditText
             android:id="@+id/Phone"
@@ -33,18 +36,22 @@
             android:background="@android:color/transparent"
             android:gravity="start"
             android:hint="phone"
-            android:padding="@dimen/_4ssp"
             android:inputType="phone"
+            android:padding="@dimen/_5ssp"
             android:textAlignment="viewStart"
             android:textColor="@color/black"
-            android:textColorHint="@color/black">
+            android:textColorHint="@color/black"
+            android:textSize="@dimen/_10ssp"
+            app:layout_constraintStart_toStartOf="parent">
 
         </EditText>
+
         <ImageView
             android:layout_width="@dimen/_8ssp"
             android:layout_height="@dimen/_8ssp"
             android:layout_margin="@dimen/_5ssp"
             android:src="@drawable/ic_baseline_keyboard_arrow_down_24"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"

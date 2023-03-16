@@ -48,9 +48,8 @@ APIInterface {
     @Headers({"Accept: application/json"})
     Call<GroupsModel> GroupStore(
             @Header("authorization") String Token,
-            @Field("sender_id") String sender_id,
-            @Field("phones[]") List<String> phones,
-            @Field("msg") String msg
+            @Field("name") String name,
+            @Field("phones[]") List<String> phones
     );
 
 

@@ -23,7 +23,27 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <EditText
+            android:id="@+id/group_name"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_35ssp"
+            android:layout_alignParentTop="true"
+            android:padding="@dimen/_2ssp"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="@dimen/_20ssp"
+            android:textColorHint="@color/black"
+            android:paddingStart="@dimen/_20ssp"
+            android:background="@drawable/curved_solid_main_color"
+            android:backgroundTint="@color/light_gray"
+            android:gravity="center_vertical"
+            android:hint="Add Group name"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
+        </EditText>
 
         <RelativeLayout
             android:id="@+id/specific_time_hours"
@@ -33,8 +53,7 @@
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            >
+            app:layout_constraintTop_toBottomOf="@+id/group_name">
 
             <TextView
                 android:id="@+id/add_phone"
@@ -42,7 +61,10 @@
                 android:layout_height="@dimen/_23ssp"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
-                android:layout_margin="@dimen/_5ssp"
+                android:layout_marginStart="@dimen/_5ssp"
+                android:layout_marginTop="@dimen/_5ssp"
+                android:layout_marginEnd="@dimen/_5ssp"
+                android:layout_marginBottom="@dimen/_5ssp"
                 android:background="@drawable/curved_solid_main_color"
                 android:backgroundTint="@color/bink"
                 android:gravity="center"
@@ -53,23 +75,40 @@
 
             </TextView>
 
+            <TextView
+                android:id="@+id/add_phone_from_contact"
+                android:layout_width="@dimen/_80ssp"
+                android:layout_height="@dimen/_23ssp"
+                android:layout_below="@+id/add_phone"
+                android:layout_alignParentEnd="true"
+                android:layout_margin="@dimen/_5ssp"
+                android:background="@drawable/curved_solid_main_color"
+                android:backgroundTint="@color/bink"
+                android:gravity="center"
+                android:paddingStart="@dimen/_5ssp"
+                android:text="contact phone"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_11ssp">
+
+            </TextView>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/Phones"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_toStartOf="@+id/add_phone"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
             </androidx.recyclerview.widget.RecyclerView>
 
 
-
         </RelativeLayout>
 
 
         <TextView
-            android:id="@+id/AddGroup"
+            android:id="@+id/saveGroup"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_35ssp"
             android:layout_margin="@dimen/_40ssp"

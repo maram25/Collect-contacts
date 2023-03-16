@@ -31,12 +31,9 @@ public class GroupsViewModel extends ViewModel {
 			 @Override
 			 public void onResponse(Call<GroupsModel> call, Response<GroupsModel> response) {
 				 GroupsModel resource = response.body();
-
 				 if (response.isSuccessful()) {
 					 Groups.setValue(resource.getData().getGroups());
 				 }
-
-
 			 }
 
 			 @Override

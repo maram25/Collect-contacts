@@ -52,10 +52,8 @@ public class GroupsFragment extends Fragment {
 	Actions();
 	Observers();
 	SetUP();
-		mViewModel.GetGroups();
+	mViewModel.GetGroups();
 	StartProgress();
-
-
 		 return  root;
 
 }
