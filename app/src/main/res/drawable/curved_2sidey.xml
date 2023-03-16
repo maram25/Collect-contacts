@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:shape="rectangle"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+
+    <corners android:topLeftRadius="@dimen/_15ssp"
+        android:topRightRadius="@dimen/_15ssp">
+    </corners>
+
+
+
+    <solid android:color="@color/light_gray">
+    </solid>
+    <item name="android:shadowColor" tools:ignore="MissingPrefix">#000000</item>
+    <item name="android:shadowRadius"
+        tools:ignore="MissingPrefix">15</item>
+    <item name="android:shadowDy"
+        tools:ignore="MissingPrefix">50</item>
+</shape>

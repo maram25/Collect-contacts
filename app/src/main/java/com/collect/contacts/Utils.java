@@ -18,6 +18,7 @@ Utils {
     public static String Sender;
     public static String SMS;
     public static List<String> Phones = new ArrayList<>();
+    public static List<String> GroupsPhones = new ArrayList<>();
 
 
 

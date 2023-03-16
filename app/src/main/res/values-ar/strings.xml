@@ -1,8 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Collectcontacts</string>
     <string name="LOGOUT">LOGOUT</string>
     <string name="Home">Home</string>
     <string name="Groups">Groups</string>
+
 
 
 </resources>

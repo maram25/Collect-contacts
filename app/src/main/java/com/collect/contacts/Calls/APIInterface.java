@@ -2,6 +2,7 @@ package com.collect.contacts.Calls;
 
 
 import com.collect.contacts.Models.ContactModel;
+import com.collect.contacts.Models.GroupsModel;
 import com.collect.contacts.Models.LoginModel;
 import com.collect.contacts.Models.UserProfileModel;
 
@@ -40,6 +41,17 @@ APIInterface {
             @Field("phones[]") List<String> phones,
             @Field("msg") String msg
     );
+ //sendSMS
+
+    @FormUrlEncoded
+    @POST("api/user/group/store")
+    @Headers({"Accept: application/json"})
+    Call<GroupsModel> GroupStore(
+            @Header("authorization") String Token,
+            @Field("sender_id") String sender_id,
+            @Field("phones[]") List<String> phones,
+            @Field("msg") String msg
+    );
 
 
     //logout
@@ -54,6 +66,11 @@ APIInterface {
     @GET("api/user/profile")
     @Headers({"Accept: application/json"})
     Call<UserProfileModel> UserProfile(
+            @Header("Authorization") String Token
+    );
+    @GET("api/user/groups")
+    @Headers({"Accept: application/json"})
+    Call<GroupsModel> GetGroups(
             @Header("Authorization") String Token
     );
 
