@@ -15,6 +15,7 @@ import com.collect.contacts.MainActivity;
 import com.collect.contacts.Models.ContactModel;
 import com.collect.contacts.Models.GroupsModel;
 import com.collect.contacts.R;
+import com.collect.contacts.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,6 +48,7 @@ public class GroupsAdapter extends RecyclerView.Adapter<GroupsAdapter.ViewHolder
 
    holder.name.setText( Groups.get(position).getName()+"");
    holder.number.setText( Groups.get(position).getCount_phones()+"");
+        Utils.Phones=Groups.get(position).getPhones();
 
 
     }

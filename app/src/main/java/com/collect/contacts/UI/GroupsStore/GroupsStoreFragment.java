@@ -51,7 +51,7 @@ public class GroupsStoreFragment extends Fragment {
 	  TextView add_phone,saveGroup;
 	   TextView add_phone_from_contact;
 	  EditText group_name;
-	private List<String> count = new ArrayList<>();
+	private ArrayList<String> count = new ArrayList<>();
 
 	private static final int REQUEST_RUNTIME_PERMISSION = 123;
 	String[] permissons = {Manifest.permission.READ_CONTACTS, Manifest.permission.WRITE_CONTACTS, Manifest.permission.READ_CONTACTS, Manifest.permission.READ_PHONE_STATE, Manifest.permission.READ_CALL_LOG};
@@ -80,7 +80,6 @@ public class GroupsStoreFragment extends Fragment {
 	}
 
 	private void SetUP() {
-
 		adapter2 = new AddPhoneAdapter(getContext(), count, getActivity().getSupportFragmentManager());
 	//	adapter2 = new AddPhoneAdapter(getContext(), Utils.GroupsPhones, getActivity().getSupportFragmentManager());
 		LinearLayoutManager layoutManager2 = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);

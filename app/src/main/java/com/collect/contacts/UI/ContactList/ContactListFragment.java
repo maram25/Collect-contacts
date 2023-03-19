@@ -100,7 +100,6 @@ public class ContactListFragment extends Fragment {
 
 		if (CheckPermission(getActivity(), permissons[0])) {
 			 StartProgress();
-
 			GetContactFromDevice getContactFromDevice = new GetContactFromDevice();
 
 			final Contact_listAdapter adapter2 = new Contact_listAdapter(getActivity().getSupportFragmentManager(), getContext(), getContactFromDevice.getContacts(getContext()));
@@ -118,7 +117,6 @@ public class ContactListFragment extends Fragment {
 		}
 
 
-
 		return  root;
 	}
 
@@ -126,7 +124,6 @@ public class ContactListFragment extends Fragment {
 		 SendSMS.setOnClickListener(new View.OnClickListener() {
 			 @Override
 			 public void onClick(View view) {
-
 			 	//mViewModel.SendContact(Utils.Sender,Utils.Phones,Utils.SMS);
 			 	mViewModel.SendContact(Utils.Sender,contact,Utils.SMS);
 			 }

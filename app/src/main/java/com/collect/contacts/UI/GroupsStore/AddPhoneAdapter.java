@@ -30,19 +30,18 @@ public class AddPhoneAdapter extends RecyclerView.Adapter<AddPhoneAdapter.ViewHo
 	MainActivity mainActivity;
 	FragmentManager fragmentManager;
 	Context context;
-	private List<String> Phones = new ArrayList<>();
+	private ArrayList<String> Phones = new ArrayList<>();
    String Time;
 	int k = 0;
 	int mHour;
 	int mMinute;
 	String date_time = "";
 
-	public AddPhoneAdapter(Context context, List<String> names, FragmentManager fragmentManager) {
+	public AddPhoneAdapter(Context context, ArrayList<String> names, FragmentManager fragmentManager) {
 		this.Phones = names;
 		this.context = context;
 		this.fragmentManager = fragmentManager;
 	}
-
 
 	@NonNull
 	@Override
