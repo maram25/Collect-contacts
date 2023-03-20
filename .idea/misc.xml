@@ -3,8 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Maram abdelmageed/Downloads/Collect-contacts/app/src/main/res/drawable-ar/drawer_menu_bg.xml" value="0.1595" />
         <entry key="..\:/Users/Maram abdelmageed/Downloads/Collect-contacts/app/src/main/res/drawable-v24/curved_solid_main_color.xml" value="0.146" />
         <entry key="..\:/Users/Maram abdelmageed/Downloads/Collect-contacts/app/src/main/res/drawable-v24/icon_color_selector.xml" value="0.1595" />
+        <entry key="..\:/Users/Maram abdelmageed/Downloads/Collect-contacts/app/src/main/res/drawable/ic_baseline_language_24.xml" value="0.1595" />
+        <entry key="..\:/Users/Maram abdelmageed/Downloads/Collect-contacts/app/src/main/res/layout/about_u_fragment.xml" value="0.234375" />
         <entry key="..\:/Users/Maram abdelmageed/Downloads/Collect-contacts/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/Maram abdelmageed/Downloads/Collect-contacts/app/src/main/res/layout/activity_sign.xml" value="0.25" />
         <entry key="..\:/Users/Maram abdelmageed/Downloads/Collect-contacts/app/src/main/res/layout/activity_splash.xml" value="0.25" />
@@ -19,6 +22,7 @@
         <entry key="..\:/Users/Maram abdelmageed/Downloads/Collect-contacts/app/src/main/res/layout/home_fragment.xml" value="0.176" />
         <entry key="..\:/Users/Maram abdelmageed/Downloads/Collect-contacts/app/src/main/res/layout/login_fragment.xml" value="0.22798887859128822" />
         <entry key="..\:/Users/Maram abdelmageed/Downloads/Collect-contacts/app/src/main/res/layout/progress_bar.xml" value="0.25" />
+        <entry key="..\:/Users/Maram abdelmageed/Downloads/Collect-contacts/app/src/main/res/layout/setting_fragment.xml" value="0.176" />
         <entry key="..\:/Users/Maram abdelmageed/Downloads/Collect-contacts/app/src/main/res/layout/spinner_item.xml" value="0.25" />
         <entry key="..\:/Users/Maram abdelmageed/Downloads/Collect-contacts/app/src/main/res/layout/suess_sms_popup.xml" value="0.25" />
         <entry key="..\:/Users/Maram abdelmageed/Downloads/Collect-contacts/app/src/main/res/menu/bottom_nav_menu.xml" value="0.15677083333333333" />

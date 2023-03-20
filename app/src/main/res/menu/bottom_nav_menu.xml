@@ -11,8 +11,13 @@
         android:title="@string/Groups" />
 
     <item
-        android:id="@+id/LOGOUT"
-        android:icon="@drawable/ic_baseline_logout_24"
-        android:title="@string/LOGOUT" />
+        android:id="@+id/setting"
+        android:icon="@drawable/ic_baseline_more_horiz"
+        android:title="@string/setting" />
+
+<!--    <item-->
+<!--        android:id="@+id/LOGOUT"-->
+<!--        android:icon="@drawable/ic_baseline_logout_24"-->
+<!--        android:title="@string/LOGOUT" />-->
 
 </menu>

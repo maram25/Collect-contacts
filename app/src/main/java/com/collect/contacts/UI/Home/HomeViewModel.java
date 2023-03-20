@@ -34,7 +34,7 @@ public class HomeViewModel extends ViewModel {
 				 else if (response.code() == 400){
 					 tryAgain.setValue(true);
 				 }
- else if (response.code() == 500){
+            else if (response.code() == 500){
 					 tryAgain.setValue(true);
 				 }
 

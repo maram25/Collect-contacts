@@ -29,10 +29,9 @@
 
             android:id="@+id/imageView2"
             android:layout_width="0dp"
-            android:layout_height="130dp"
-            android:padding="@dimen/_10ssp"
+            android:layout_height="150dp"
             android:layout_marginTop="@dimen/_20ssp"
-            android:src="@drawable/call"
+            android:src="@drawable/logo"
             app:layout_constraintEnd_toEndOf="@id/guideline8"
             app:layout_constraintStart_toStartOf="@id/guideline7"
             app:layout_constraintTop_toTopOf="parent">
@@ -49,7 +48,7 @@
             android:ems="10"
             android:textColorHint="@color/bink"
            android:textColor="@color/black"
-            android:hint="Email"
+            android:hint="@string/Email"
             android:inputType="textPersonName"
             android:paddingLeft="@dimen/_20ssp"
             android:paddingRight="@dimen/_20ssp"
@@ -90,7 +89,7 @@
             android:textColor="@color/black"
             android:imeOptions="actionNext"
             android:singleLine="true"
-            android:hint="Password"
+            android:hint="@string/Password"
             android:inputType="textPassword"
             android:textAlignment="viewStart"
             android:textSize="@dimen/_12ssp"/>
@@ -107,7 +106,7 @@
             android:background="@drawable/curved_solid_main_color"
             android:gravity="center"
             android:backgroundTint="@color/bink"
-            android:text="Login"
+            android:text="@string/Login"
             android:layout_marginTop="@dimen/_60ssp"
             android:textColor="@color/white"
             android:textSize="@dimen/_15ssp"
@@ -143,14 +142,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.25" />
+            app:layout_constraintGuide_percent="0.20" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.75" />
+            app:layout_constraintGuide_percent="0.8" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

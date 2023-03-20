@@ -14,6 +14,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.text.Editable;
+import android.text.InputType;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -145,13 +146,21 @@ public class HomeFragment extends Fragment {
 
 			public void onTextChanged(CharSequence s, int start, int before, int count) {
 				//This sets a textview to the current length
-				//SMSTextView.setText(String.valueOf(250-s.length()));
+				//SMSTextView.setTextAlignment(250-s.length());
+				if (s.equals('\t') ) {
+					Log.d("tab","---------" );
+
+					SMSTextView.setTextAlignment( count+2);
+				}
 			}
 
 			public void afterTextChanged(Editable s) {
 			}
 		};
 
+		 ///// close emoji  from KP
+
+		SMSEditText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
 
 		SMSEditText.addTextChangedListener(mTextEditorWatcher);
 
@@ -177,9 +186,9 @@ public class HomeFragment extends Fragment {
 			@Override
 			public void onClick(View view) {
 
-				 if (Utils.Sender==null|| SMSEditText == null)
+				 if (Utils.Sender==null|| SMSEditText== null)
 				 {
-					 Toast.makeText(getContext(), "   check for choose user sender and add SMS", Toast.LENGTH_LONG).show();
+					 Toast.makeText(getContext(), "check for choose user sender and add SMS", Toast.LENGTH_LONG).show();
 
 				 }else
 				 	 Utils.SMS=SMSEditText.getText().toString();

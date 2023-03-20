@@ -8,9 +8,13 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="bink">#E13785</color>
+
+
+    <color name="bink">#00a1e4</color>
+<!--    <color name="bink">#E13785</color>-->
 
     <color name="light_gray">#F5F5F5</color>
+    <color name="dark_gray">#30302f</color>
 
 
 </resources>

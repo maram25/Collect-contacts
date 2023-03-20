@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UI.Setting.settingFragment">
+
+    <RelativeLayout
+        android:visibility="gone"
+        android:id="@+id/Progress"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            layout="@layout/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        </include>
+
+    </RelativeLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/Layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <RelativeLayout
+            android:id="@+id/LOGOUT"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40ssp"
+            android:layout_margin="@dimen/_25ssp"
+            android:background="@drawable/curved_solid_main_color"
+
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <ImageView
+                android:id="@+id/address_background"
+                android:layout_width="@dimen/_15ssp"
+                android:layout_height="@dimen/_15ssp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/_10ssp"
+
+                android:src="@drawable/ic_baseline_logout_24"
+                app:tint="@color/bink" />
+
+
+            <TextView
+                android:id="@+id/address"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="9dp"
+                android:layout_toEndOf="@+id/address_background"
+                android:gravity="center_vertical"
+                android:text="@string/LOGOUT"
+                android:textColor="@color/dark_gray"
+                android:textSize="20sp">
+
+            </TextView>
+
+            <ImageView
+                android:id="@+id/arrow1"
+                android:layout_width="@dimen/_11ssp"
+                android:layout_height="@dimen/_11ssp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="center"
+                android:layout_marginEnd="20dp"
+                android:src="@drawable/icon_left"
+                app:tint="@color/bink">
+
+            </ImageView>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/lang"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40ssp"
+            android:layout_margin="@dimen/_25ssp"
+            android:background="@drawable/curved_solid_main_color"
+
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/LOGOUT">
+
+
+            <ImageView
+                android:id="@+id/addres"
+                android:layout_width="@dimen/_15ssp"
+                android:layout_height="@dimen/_15ssp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/_10ssp"
+
+                android:src="@drawable/ic_baseline_language_24"
+                app:tint="@color/bink" />
+
+
+            <TextView
+                android:id="@+id/addre"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="9dp"
+                android:layout_toEndOf="@+id/addres"
+                android:gravity="center_vertical"
+                android:text="@string/Lang"
+
+                android:textColor="@color/dark_gray"
+                android:textSize="20sp">
+
+            </TextView>
+
+            <ImageView
+                android:id="@+id/arrow"
+                android:layout_width="@dimen/_11ssp"
+                android:layout_height="@dimen/_11ssp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="center"
+                android:layout_marginEnd="20dp"
+                android:src="@drawable/icon_left"
+                app:tint="@color/bink">
+
+            </ImageView>
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/aboutUs"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40ssp"
+            android:layout_margin="@dimen/_25ssp"
+            android:background="@drawable/curved_solid_main_color"
+
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lang">
+
+
+            <ImageView
+                android:id="@+id/aboutUss"
+                android:layout_width="@dimen/_15ssp"
+                android:layout_height="@dimen/_15ssp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/_10ssp"
+
+                android:src="@drawable/ic_baseline_language_24"
+                app:tint="@color/bink" />
+
+
+            <TextView
+                android:id="@+id/about"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="9dp"
+                android:layout_toEndOf="@+id/aboutUss"
+                android:gravity="center_vertical"
+                android:text="@string/About_us"
+
+                android:textColor="@color/dark_gray"
+                android:textSize="20sp">
+
+            </TextView>
+
+            <ImageView
+                android:id="@+id/arrow3"
+                android:layout_width="@dimen/_11ssp"
+                android:layout_height="@dimen/_11ssp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="center"
+                android:layout_marginEnd="20dp"
+                android:src="@drawable/icon_left"
+                app:tint="@color/bink">
+
+            </ImageView>
+        </RelativeLayout>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

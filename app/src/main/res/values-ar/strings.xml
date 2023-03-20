@@ -1,9 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Collectcontacts</string>
-    <string name="LOGOUT">LOGOUT</string>
-    <string name="Home">Home</string>
-    <string name="Groups">Groups</string>
+    <string name="LOGOUT">تسجيل خروج</string>
+    <string name="Home">الرئسية</string>
+    <string name="Groups">مجموعات</string>
+
+    <string name="setting">ضبط</string>
+
+    <string name="Lang">English</string>
+
+    <string name="About_us">معلومات عنا </string>
+
+    <string name="Login">تسجيل دخول</string>
+    <string name="first_name">الاسم الاول </string>
+    <string name="UserPhone">رقم الهاتف</string>
+
+    <string name="Email">البريد الالكتروني</string>
+
+    <string name="Password">كلمه المرور</string>
+
+    //home
+    <string name="choose_sender">اختر مستخدم المرسل الخاص بك من فضلك</string>
+    <string name="sender">المرسل</string>
+    <string name="Add_SMS">أضف الرسائل</string>
 
 
 

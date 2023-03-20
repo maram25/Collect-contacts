@@ -25,6 +25,7 @@ import com.collect.contacts.UI.ContactList.ContactListFragment;
 import com.collect.contacts.UI.Groups.GroupsFragment;
 import com.collect.contacts.UI.Home.HomeFragment;
 import com.collect.contacts.UI.Login.LoginFragment;
+import com.collect.contacts.UI.Setting.settingFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import retrofit2.Call;
@@ -38,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
 	public SharedPreferences.Editor Ed;
 	DrawerLayout drawer;
 	BottomNavigationView bottomNavigationView;
-
 
 
 	@SuppressLint("CutPasteId")
@@ -56,29 +56,32 @@ public class MainActivity extends AppCompatActivity {
 		Definations();
 
 	}
+
 	private void Definations() {
 		drawer = findViewById(R.id.drawer_layout);
-		bottomNavigationView  = findViewById(R.id.nav_view_bottom);
+		bottomNavigationView = findViewById(R.id.nav_view_bottom);
 		BottomNavigationView navView = findViewById(R.id.nav_view_bottom);
 		navView.setOnNavigationItemSelectedListener(navListener);
 
 
 	}
 
-		BottomNavigationView.OnNavigationItemSelectedListener navListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
+	BottomNavigationView.OnNavigationItemSelectedListener navListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
 		@Override
 		public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 			Fragment selectedFragment = null;
 			switch (item.getItemId()) {
 				case R.id.navigation_home:
-					 goToFragment( new HomeFragment());
+					goToFragment(new HomeFragment());
 					//selectedFragment = new HomeFragment();
 					break;
 				case R.id.LOGOUT:
 					lOGOUT();
 					break;
 				case R.id.Groups:
-					goToFragment( new GroupsFragment());
+					goToFragment(new GroupsFragment());
+				case R.id.setting:
+					goToFragment(new settingFragment());
 
 					//selectedFragment = new GroupsFragment();
 					break;
@@ -92,17 +95,16 @@ public class MainActivity extends AppCompatActivity {
 	};
 
 
-
 	private void SetUp() {
 		SharedPreferences sp = getSharedPreferences("Login", MODE_PRIVATE);
 		Utils.User_Login = sp.getBoolean("User_Login", false);
 		Utils.Lang = sp.getString("Lang", null);
-		Log.d("User_Login ",Utils.User_Login +"" );
+		Log.d("User_Login ", Utils.User_Login + "");
 		Utils.Token = sp.getString("Token", null);
 		Ed = sp.edit();
-		Ed.putString("Lang",Utils.Lang);
+		Ed.putString("Lang", Utils.Lang);
 		Ed.commit();
-		Log.d("Lang ",Utils.Lang +"" );
+		Log.d("Lang ", Utils.Lang + "");
 
 		if (Utils.User_Login) {
 			goToFragment(new HomeFragment());
@@ -140,8 +142,8 @@ public class MainActivity extends AppCompatActivity {
 					Ed.putString("Name", null);
 					Ed.putString("Lang", Utils.Lang);
 					Ed.putString("Token", null);
-					Utils.User_Login= false;
-					Ed.putBoolean("User_Login",false );
+					Utils.User_Login = false;
+					Ed.putBoolean("User_Login", false);
 					Ed.commit();
 					Intent i = new Intent(getApplicationContext(), SignActivity.class);
 					i.putExtra("User_Login", false);

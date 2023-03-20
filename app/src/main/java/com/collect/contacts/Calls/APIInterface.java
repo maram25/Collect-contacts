@@ -4,6 +4,7 @@ package com.collect.contacts.Calls;
 import com.collect.contacts.Models.ContactModel;
 import com.collect.contacts.Models.GroupsModel;
 import com.collect.contacts.Models.LoginModel;
+import com.collect.contacts.Models.StaticPagesModel;
 import com.collect.contacts.Models.UserProfileModel;
 
 import java.util.HashMap;
@@ -72,6 +73,11 @@ APIInterface {
     Call<GroupsModel> GetGroups(
             @Header("Authorization") String Token
     );
+    @GET("api/pages")
+    @Headers({"Accept: application/json"})
+    Call<StaticPagesModel> GetInfos();
+
+
 
 
 }

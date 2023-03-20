@@ -35,18 +35,19 @@ public class SplashActivity extends AppCompatActivity {
 		setContentView(R.layout.activity_splash);
 		x = findViewById(R.id.linearLayout2);
 		Arabic = findViewById(R.id.Arabic);
+		companyLogo = findViewById(R.id.companyLogo);
 		English = findViewById(R.id.English);
 
 
 
-//		Animation company_logo = AnimationUtils.loadAnimation(this, R.anim.top_to_bottom_animation);
-//		Animation animation = AnimationUtils.loadAnimation(this, R.anim.bottom_to_top_animation);
-//		Animation rotate = AnimationUtils.loadAnimation(this, R.anim.rotate);
-//		x.startAnimation(animation);
-//		alarm_graphic.startAnimation(rotate);
+		Animation company_logo = AnimationUtils.loadAnimation(this, R.anim.top_to_bottom_animation);
+		Animation animation = AnimationUtils.loadAnimation(this, R.anim.bottom_to_top_animation);
+		Animation rotate = AnimationUtils.loadAnimation(this, R.anim.rotate);
+		companyLogo.startAnimation(company_logo);
+		x.startAnimation(animation);
 
 
-		SetAppLocale("en");
+		//SetAppLocale("en");
 		SharedPreferences sp1 = getSharedPreferences("Login", MODE_PRIVATE);
 		String Lang = sp1.getString("Lang", null);
 		if (Lang != null) {
@@ -55,7 +56,7 @@ public class SplashActivity extends AppCompatActivity {
 				public void onTick(long millisUntilFinished) {
 				}
 				public void onFinish() {
-				//	SetAppLocale(Lang);
+					SetAppLocale(Lang);
 				}
 			}.start();
 		}
