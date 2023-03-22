@@ -4,6 +4,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -19,13 +20,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.collect.contacts.MainActivity;
+import com.collect.contacts.Models.ContactModel;
 import com.collect.contacts.Models.GroupsModel;
 import com.collect.contacts.R;
 import com.collect.contacts.UI.ContactList.ContactListFragment;
 import com.collect.contacts.UI.ContactList.Contact_listAdapter;
 import com.collect.contacts.UI.GroupsStore.GroupsStoreFragment;
+import com.collect.contacts.Utils;
 
 import java.util.List;
 
@@ -36,7 +40,7 @@ public class GroupsFragment extends Fragment {
 
 	RelativeLayout Progress;
 	ConstraintLayout Layout;
-	TextView AddGroup;
+	TextView AddGroup,SendSMS;
 	 RecyclerView  GroupsList;
 	public static GroupsFragment newInstance() {
 		return new GroupsFragment();
@@ -63,6 +67,15 @@ public class GroupsFragment extends Fragment {
 
 	private void Observers() {
 
+
+		mViewModel.ContactList.observe(getViewLifecycleOwner(), new Observer<ContactModel>() {
+			@Override
+			public void onChanged(ContactModel contactModel) {
+				Toast.makeText(getContext(), " send contact success", Toast.LENGTH_LONG).show();
+
+			}
+		});
+
 		mViewModel.Groups.observe(getViewLifecycleOwner(), new Observer<List<GroupsModel.Data.Groups>>() {
 			@Override
 			public void onChanged(List<GroupsModel.Data.Groups> groups) {
@@ -79,6 +92,28 @@ public class GroupsFragment extends Fragment {
 	}
 
 	private void Actions() {
+		checklist_contact.setOnClickListener(new View.OnClickListener() {
+			@SuppressLint("NotifyDataSetChanged")
+			@Override
+			public void onClick(View view) {
+				Log.e("alllist", true+ "");
+				Utils.checkList=true;
+				adapter2.notifyDataSetChanged();
+
+
+				//Utils.Phones=contact;
+			}
+		});
+
+		SendSMS.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+
+				//mViewModel.SendContact(Utils.Sender,Utils.Phones,Utils.SMS);
+				mViewModel.SendContact(Utils.Sender, Utils.Phones,Utils.SMS);
+			}
+		});
+
 		AddGroup.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
@@ -94,6 +129,7 @@ public class GroupsFragment extends Fragment {
 		Layout = root.findViewById(R.id.Layout);
 		AddGroup = root.findViewById(R.id.AddGroup);
 		GroupsList = root.findViewById(R.id.GroupsList);
+		SendSMS = root.findViewById(R.id.SendSMS);
 	}
 	public void StartProgress() {
 		Progress.setVisibility(View.VISIBLE);

@@ -20,9 +20,16 @@
     <string name="Password">كلمه المرور</string>
 
     //home
-    <string name="choose_sender">اختر مستخدم المرسل الخاص بك من فضلك</string>
+    <string name="choose_sender">اسم المرسل </string>
     <string name="sender">المرسل</string>
-    <string name="Add_SMS">أضف الرسائل</string>
+    <string name="Add_SMS">أضف الرسائل.....</string>
+    <string name="contacts">جهات الاتصال</string>
+    <string name="sendto">ارسل إلى:</string>
+    <string name="select_all">اختر الكل</string>
+    <string name="AddGroup">أضف مجموعة </string>
+    <string name="Send_SMS">أرسل الرسالة</string>
+
+    <string name="balance_messages">عدد الرسائل المتاحة </string>
 
 
 

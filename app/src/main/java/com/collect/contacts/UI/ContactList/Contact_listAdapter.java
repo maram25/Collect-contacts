@@ -1,9 +1,13 @@
 package com.collect.contacts.UI.ContactList;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -15,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.collect.contacts.Models.ContactModel;
 import com.collect.contacts.MainActivity;
 import com.collect.contacts.R;
+import com.collect.contacts.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,15 +50,26 @@ public class Contact_listAdapter extends RecyclerView.Adapter<Contact_listAdapte
 
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
 
-   holder.name.setText( Contact.get(position).getName()+"");
-   holder.phone.setText( Contact.get(position).getPhone()+"");
-   holder.email.setText( Contact.get(position).getEmail()+"");
+         if (Utils.checkList)
+         {
+             holder.check_contact_item.setChecked(true);
+         }
+          else
+             holder.check_contact_item.setChecked(false);
 
 
+        holder.name.setText( Contact.get(position).getName()+"");
+     holder.phone.setText( Contact.get(position).getPhone()+"");
+    holder.check_contact_item.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        @Override
+        public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+            Utils.selected_items_phones.add(Contact.get(position).getPhone());
+            Log.d("selected_items_phones","---------" + Contact.get(position).getPhone());
+        }
+    });
     }
-
 
     @Override
     public int getItemCount() {
@@ -61,14 +77,15 @@ public class Contact_listAdapter extends RecyclerView.Adapter<Contact_listAdapte
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-         TextView phone,email,name;
+         TextView phone,name;
          ConstraintLayout item;
+        CheckBox check_contact_item;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             phone = itemView.findViewById(R.id.phone);
             name = itemView.findViewById(R.id.name);
-            email = itemView.findViewById(R.id.email);
+            check_contact_item = itemView.findViewById(R.id.check_contact_item);
 
         }
     }

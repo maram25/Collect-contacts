@@ -28,82 +28,103 @@
         android:layout_height="match_parent">
 
 
+        <LinearLayout
+            android:id="@+id/head"
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="@dimen/_30ssp"
+            android:layout_marginLeft="@dimen/_15ssp"
+            android:layout_marginRight="@dimen/_15ssp"
+            android:layout_weight="5"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-    <ImageView
-        android:id="@+id/LOGOUT"
-        android:layout_width="@dimen/_30ssp"
-        android:layout_height="@dimen/_30ssp"
-        android:layout_margin="@dimen/_20ssp"
-        android:gravity="center"
-        android:visibility="gone"
-        android:padding="3dp"
-        android:src="@drawable/ic_baseline_logout_24"
-        android:textColor="@color/white"
-        android:textSize="@dimen/_15ssp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:tint="@color/bink">
 
-    </ImageView>
+            <ImageView
 
-    <TextView
-        android:id="@+id/hint"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="@dimen/_15ssp"
-        android:layout_marginLeft="@dimen/_15ssp"
-        android:layout_marginTop="@dimen/_30ssp"
-        android:gravity="center_vertical"
-        android:text="@string/choose_sender"
-        android:textColor="@color/black"
-        android:textSize="@dimen/_12ssp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/LOGOUT"
-        />
+                android:id="@+id/imageView2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:src="@drawable/logo"
+                app:layout_constraintEnd_toEndOf="@id/guideline8"
+                app:layout_constraintStart_toStartOf="@id/guideline7"
+                app:layout_constraintTop_toTopOf="parent">
 
-    <com.jaredrummler.materialspinner.MaterialSpinner
-        android:id="@+id/sender"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_35ssp"
-        android:layout_margin="@dimen/_15ssp"
-        android:layout_weight="1"
-        android:background="@color/white"
-        android:backgroundTint="@color/white"
-        android:hint="@string/sender"
-        android:textColor="@color/black"
-        android:textColorHint="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/hint" />
+            </ImageView>
 
-    <TextView
-        android:id="@+id/available"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/_15ssp"
-        android:gravity="center_vertical"
-        android:text=""
-        android:textColor="@color/black"
-        android:textSize="@dimen/_12ssp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sender"
-        />
+            <TextView
+                android:id="@+id/available"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:background="@drawable/curved_solid_main_color"
+                android:backgroundTint="@color/bink"
+                android:fontFamily="@font/noor_bold"
+                android:text="5525"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textDirection="ltr"
+                android:textSize="@dimen/_17ssp">
 
-    <EditText
-        android:id="@+id/SMS"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/_15ssp"
-        android:backgroundTint="@color/white"
-        android:padding="@dimen/_5ssp"
-        android:hint="Add SMS "
-        android:visibility="gone"
-        android:background="@drawable/curved_solid_main_color"
-        app:layout_constraintTop_toBottomOf="@+id/available">
+            </TextView>
 
-    </EditText>
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:id="@+id/head2"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_43ssp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="@dimen/_30ssp"
+            android:layout_marginLeft="@dimen/_15ssp"
+            android:layout_marginRight="@dimen/_15ssp"
+            android:layout_weight="5"
+            android:padding="@dimen/_5ssp"
+            android:background="@drawable/curved_solid_main_color"
+            android:backgroundTint="@color/white"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/head">
+            <TextView
+                android:id="@+id/hint"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.5"
+                android:gravity="center_vertical"
+                android:text="@string/choose_sender"
+                android:textColor="@color/bink"
+                android:paddingStart="@dimen/_10ssp"
+                android:fontFamily="@font/noor_regular"
+                android:textSize="@dimen/_12ssp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/head"
+                />
+
+            <com.jaredrummler.materialspinner.MaterialSpinner
+                android:id="@+id/sender"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:hint="@string/sender"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12ssp"
+                android:fontFamily="@font/noor_regular"
+                android:textColorHint="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/hint" />
+        </LinearLayout>
+
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/SMSTextView"
@@ -117,7 +138,7 @@
         app:prefixTextColor="@color/black"
         android:textColorHint="@color/black"
         android:background="@drawable/curved_solid_main_color"
-        app:layout_constraintTop_toBottomOf="@+id/available"
+        app:layout_constraintTop_toBottomOf="@+id/head2"
         >
 
     <com.google.android.material.textfield.TextInputEditText
@@ -134,8 +155,75 @@
 
 </com.google.android.material.textfield.TextInputLayout>
 
+        <TextView
+            android:id="@+id/sendto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/noor_bold"
+            android:gravity="start|center"
+            android:layout_margin="@dimen/_20ssp"
+            android:text="@string/sendto"
+            android:textColor="@color/dark_gray"
+            android:textDirection="ltr"
+            android:textSize="@dimen/_15ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/SMSTextView">
 
-    <TextView
+        </TextView>
+
+        <LinearLayout
+            android:id="@+id/sende"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_45ssp"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="@dimen/_15ssp"
+            android:layout_weight="5"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sendto">
+
+            <TextView
+                android:id="@+id/contacts"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:background="@drawable/curved_solid_main_color"
+                android:backgroundTint="@color/bink"
+                android:fontFamily="@font/noor_bold"
+                android:gravity="center"
+                android:layout_margin="@dimen/_5ssp"
+                android:text="@string/contacts"
+                android:textColor="@color/white"
+                android:textDirection="ltr"
+                android:textSize="@dimen/_15ssp">
+
+            </TextView>
+            <TextView
+                android:id="@+id/Groups"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:layout_margin="@dimen/_5ssp"
+                android:background="@drawable/curved_solid_main_color"
+                android:backgroundTint="@color/bink"
+                android:fontFamily="@font/noor_bold"
+                android:gravity="center"
+                android:text="@string/Groups"
+                android:textColor="@color/white"
+                android:textDirection="ltr"
+                android:textSize="@dimen/_15ssp">
+
+            </TextView>
+
+        </LinearLayout>
+
+
+
+
+        <TextView
         android:id="@+id/Contact"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_35ssp"
@@ -144,6 +232,7 @@
         android:backgroundTint="@color/bink"
         android:gravity="center"
         android:padding="3dp"
+            android:visibility="gone"
         android:text=" Show Contact"
         android:textColor="@color/white"
         android:textSize="@dimen/_15ssp"

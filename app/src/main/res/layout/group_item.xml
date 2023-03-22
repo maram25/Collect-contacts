@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_margin="@dimen/_6ssp"
     android:background="@drawable/curved_solid_main_color"
-    android:padding="@dimen/_10ssp"
+    android:padding="@dimen/_5ssp"
     android:backgroundTint="@color/white"
     android:layout_height="wrap_content">
 
@@ -15,6 +15,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="kvjnkvklv"
+
         android:textColor="@color/black"
         android:textSize="@dimen/_12ssp"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,12 +28,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="dcvfv"
+        android:layout_marginStart="@dimen/_5ssp"
         android:textColor="@color/bink"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/name"
         app:layout_constraintTop_toTopOf="parent">
 
     </TextView>
 
-
+    <CheckBox
+        android:id="@+id/check_group_item"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_20ssp"
+        android:buttonTint="@color/bink"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -19,8 +19,15 @@
 
 
     //home
-    <string name="choose_sender">choose your sender user please</string>
+    <string name="choose_sender">Sender Id</string>
     <string name="sender">sender</string>
-    <string name="Add_SMS">Add SMS </string>
+    <string name="Add_SMS">Add SMS.... </string>
+    <string name="contacts">Contacts</string>
+    <string name="sendto">Send To :</string>
+    <string name="select_all">Select All</string>
+    <string name="AddGroup">Add Group </string>
+    <string name="Send_SMS">Send SMS</string>
+
+    <string name="balance_messages">Balance  messages </string>
 
 </resources>

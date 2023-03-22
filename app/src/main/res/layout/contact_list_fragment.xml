@@ -24,14 +24,15 @@
         android:id="@+id/Layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_35ssp"
         android:layout_weight="3"
         android:gravity="center_vertical"
-        android:padding="@dimen/_5ssp"
-
+        android:padding="@dimen/_3ssp"
         android:orientation="horizontal"
         android:background="@color/bink"
         app:layout_constraintEnd_toEndOf="parent"
@@ -65,21 +66,38 @@
 
         </TextView>
 
+<!--        <TextView-->
+<!--            android:id="@+id/email"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="@dimen/_3ssp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:gravity="center_vertical"-->
+<!--android:visibility="gone"-->
+<!--            android:text="Email"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:textSize="@dimen/_10ssp">-->
+
+<!--        </TextView>-->
         <TextView
-            android:id="@+id/email"
+
+            android:drawableEnd="@drawable/ic_baseline_checklist_rtl_24"
+            android:text="@string/select_all"
+            android:id="@+id/checklist_contact"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_3ssp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center_vertical"
-android:visibility="gone"
-            android:text="Email"
             android:textColor="@color/white"
-            android:textSize="@dimen/_10ssp">
+            android:drawableTint="@color/white"
+            android:tint="@color/white"
+            tools:ignore="UseAppTint">
 
         </TextView>
 
+
     </LinearLayout>
+
 
     <androidx.recyclerview.widget.RecyclerView
 
@@ -98,7 +116,7 @@ android:visibility="gone"
         android:id="@+id/SendSMS"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_35ssp"
-        android:layout_margin="@dimen/_40ssp"
+        android:layout_margin="@dimen/_50ssp"
         android:background="@drawable/curved_solid_main_color"
         android:backgroundTint="@color/bink"
         android:gravity="center"

@@ -4,6 +4,8 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -46,12 +48,26 @@ public class GroupsAdapter extends RecyclerView.Adapter<GroupsAdapter.ViewHolder
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
-   holder.name.setText( Groups.get(position).getName()+"");
-   holder.number.setText( Groups.get(position).getCount_phones()+"");
+        if (Utils.checkList)
+        {
+            holder.check_group_item.setChecked(true);
+        }
+        else
+            holder.check_group_item.setChecked(false);
+
+        holder.name.setText( Groups.get(position).getName()+"");
+       holder.number.setText( Groups.get(position).getCount_phones()+"");
         Utils.Phones=Groups.get(position).getPhones();
 
-
+holder.check_group_item.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+    @Override
+    public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+        Utils.selected_itemsGroupsPhones.add( Groups.get(position).getCount_phones());
     }
+});
+    }
+
+
 
 
     @Override
@@ -62,11 +78,13 @@ public class GroupsAdapter extends RecyclerView.Adapter<GroupsAdapter.ViewHolder
     public class ViewHolder extends RecyclerView.ViewHolder {
          TextView number,name;
          ConstraintLayout item;
+          CheckBox check_group_item;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             number = itemView.findViewById(R.id.number);
             name = itemView.findViewById(R.id.name);
+            check_group_item = itemView.findViewById(R.id.check_group_item);
 
         }
     }

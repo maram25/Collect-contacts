@@ -17,8 +17,11 @@ Utils {
     public static String Token ="";
     public static String Sender;
     public static String SMS;
+    public static Boolean checkList=false;
     public static List<String> Phones = new ArrayList<>();
+    public static List<String> selected_items_phones = new ArrayList<>();
     public static List<String> GroupsPhones = new ArrayList<>();
+    public static List<String>  selected_itemsGroupsPhones = new ArrayList<>();
 
 
 

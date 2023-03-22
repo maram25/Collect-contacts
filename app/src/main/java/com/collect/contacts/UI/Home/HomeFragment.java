@@ -32,6 +32,7 @@ import com.collect.contacts.Models.UserProfileModel;
 import com.collect.contacts.R;
 import com.collect.contacts.SignActivity;
 import com.collect.contacts.UI.ContactList.ContactListFragment;
+import com.collect.contacts.UI.Groups.GroupsFragment;
 import com.collect.contacts.Utils;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
@@ -43,8 +44,7 @@ import java.util.List;
 public class HomeFragment extends Fragment {
 
 	private HomeViewModel mViewModel;
-	TextView Contact,available;
-	 ImageView LOGOUT;
+	TextView Contact,available,contacts,Groups;
 	 EditText SMS;
 	RelativeLayout Progress;
 	ConstraintLayout Layout;
@@ -91,7 +91,7 @@ public class HomeFragment extends Fragment {
 		mViewModel.User.observe(getViewLifecycleOwner(), new Observer<UserProfileModel.Data.User>() {
 			@Override
 			public void onChanged(UserProfileModel.Data.User user) {
-				available.setText("The number of messages available "+user.getBalance());
+				available.setText(getResources().getString(R.string.balance_messages)+"\n \n"+user.getBalance()+"");
 				SenderId = new ArrayList<>();
 				SenderN = new ArrayList<>();
 				for (int i = 0; i < user.getSender_ids().size(); i++) {
@@ -174,14 +174,6 @@ public class HomeFragment extends Fragment {
 			}
 		});
 
-
-		LOGOUT.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View view) {
-				 mViewModel.lOGOUT();
-				 StartProgress();
-			}
-		});
 		Contact.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
@@ -195,6 +187,31 @@ public class HomeFragment extends Fragment {
 			     	((MainActivity) getActivity()).goToFragment(new ContactListFragment());
 			}
 		});
+		contacts.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+
+				 if (Utils.Sender==null|| SMSEditText== null)
+				 {
+					 Toast.makeText(getContext(), "check for choose user sender and add SMS", Toast.LENGTH_LONG).show();
+
+				 }else
+				 	 Utils.SMS=SMSEditText.getText().toString();
+			     	((MainActivity) getActivity()).goToFragment(new ContactListFragment());
+			}
+		});
+		Groups.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				 if (Utils.Sender==null|| SMSEditText== null)
+				 {
+					 Toast.makeText(getContext(), "check for choose user sender and add SMS", Toast.LENGTH_LONG).show();
+
+				 }else
+				 	 Utils.SMS=SMSEditText.getText().toString();
+			     	((MainActivity) getActivity()).goToFragment(new GroupsFragment());
+			}
+		});
 	}
 
 	private void Definations(View root) {
@@ -202,10 +219,10 @@ public class HomeFragment extends Fragment {
 		Layout = root.findViewById(R.id.Layout);
 
 		Contact = root.findViewById(R.id.Contact);
-		LOGOUT = root.findViewById(R.id.LOGOUT);
+		contacts = root.findViewById(R.id.contacts);
+		Groups = root.findViewById(R.id.Groups);
 		sender = root.findViewById(R.id.sender);
 		available = root.findViewById(R.id.available);
-		SMS = root.findViewById(R.id.SMS);
 		SMSTextView = (TextInputLayout) root.findViewById(R.id.SMSTextView);
 		SMSEditText = (TextInputEditText)  root.findViewById(R.id.SMSEditText);
 

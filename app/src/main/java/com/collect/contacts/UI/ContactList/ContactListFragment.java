@@ -32,6 +32,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -50,8 +51,11 @@ public class ContactListFragment extends Fragment {
 	private ContactListViewModel mViewModel;
 	 RecyclerView list_item;
 	  TextView SendSMS;
+	  TextView checklist_contact;
+	 //  ImageView checklist_contact;
+	    Boolean alllist=false;
 	List<String> contact = new ArrayList<>();
-
+	Contact_listAdapter adapter2;
 
 	ConstraintLayout Layout;
 	RelativeLayout Progrees;
@@ -102,7 +106,7 @@ public class ContactListFragment extends Fragment {
 			 StartProgress();
 			GetContactFromDevice getContactFromDevice = new GetContactFromDevice();
 
-			final Contact_listAdapter adapter2 = new Contact_listAdapter(getActivity().getSupportFragmentManager(), getContext(), getContactFromDevice.getContacts(getContext()));
+			 adapter2 = new Contact_listAdapter(getActivity().getSupportFragmentManager(), getContext(), getContactFromDevice.getContacts(getContext()));
 			LinearLayoutManager layoutManager2 = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
 			list_item.setLayoutManager(layoutManager2);
 			list_item.setHasFixedSize(true);
@@ -121,11 +125,31 @@ public class ContactListFragment extends Fragment {
 	}
 
 	private void Actions() {
+		checklist_contact.setOnClickListener(new View.OnClickListener() {
+			@SuppressLint("NotifyDataSetChanged")
+			@Override
+			public void onClick(View view) {
+				Log.e("alllist", true+ "");
+				alllist=true;
+				 Utils.checkList=true;
+				adapter2.notifyDataSetChanged();
+
+
+				//Utils.Phones=contact;
+			}
+		});
 		 SendSMS.setOnClickListener(new View.OnClickListener() {
 			 @Override
 			 public void onClick(View view) {
-			 	//mViewModel.SendContact(Utils.Sender,Utils.Phones,Utils.SMS);
-			 	mViewModel.SendContact(Utils.Sender,contact,Utils.SMS);
+			 	 if (alllist) {
+					 //mViewModel.SendContact(Utils.Sender,Utils.Phones,Utils.SMS);
+					 mViewModel.SendContact(Utils.Sender, contact, Utils.SMS);
+					 alllist = false;
+				 }
+			 	 else{
+					 mViewModel.SendContact(Utils.Sender,Utils.selected_items_phones, Utils.SMS);
+				 }
+
 			 }
 		 });
 	}
@@ -147,6 +171,7 @@ public class ContactListFragment extends Fragment {
 		Progrees = root.findViewById(R.id.Progress);
 		list_item = root.findViewById(R.id.list_item);
 		SendSMS = root.findViewById(R.id.SendSMS);
+		checklist_contact = root.findViewById(R.id.checklist_contact);
 
 	}
 	private void collect() {
