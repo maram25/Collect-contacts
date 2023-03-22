@@ -80,8 +80,8 @@ public class GroupsStoreFragment extends Fragment {
 	}
 
 	private void SetUP() {
-		adapter2 = new AddPhoneAdapter(getContext(), count, getActivity().getSupportFragmentManager());
-	//	adapter2 = new AddPhoneAdapter(getContext(), Utils.GroupsPhones, getActivity().getSupportFragmentManager());
+	    adapter2 = new AddPhoneAdapter(getContext(), count, getActivity().getSupportFragmentManager());
+		//adapter2 = new AddPhoneAdapter(getContext(), Utils.GroupsPhones, getActivity().getSupportFragmentManager());
 		LinearLayoutManager layoutManager2 = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
 		Phones.setLayoutManager(layoutManager2);
 		Phones.setHasFixedSize(true);
@@ -117,8 +117,6 @@ public class GroupsStoreFragment extends Fragment {
 				adapter2.notifyDataSetChanged();
 			}
 		});
-
-
 		saveGroup.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
@@ -138,7 +136,6 @@ public class GroupsStoreFragment extends Fragment {
 			public void onClick(View view) {
 				//if (CheckPermission(Manifest.permission.READ_CONTACTS)) {
 					if (CheckPermission(getActivity(), permissons[0])) {
-
 						Intent intent = new Intent(Intent.ACTION_PICK, ContactsContract.CommonDataKinds.Phone.CONTENT_URI);
 					   startActivityForResult(intent, REQUEST_RUNTIME_PERMISSION);
 				} else {
@@ -194,6 +191,7 @@ public class GroupsStoreFragment extends Fragment {
 	}
 
 
+	@SuppressLint("NotifyDataSetChanged")
 	@Override
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
@@ -211,8 +209,11 @@ public class GroupsStoreFragment extends Fragment {
 				phoneNo = cursor.getString(phoneIndex);
 				name = cursor.getString(nameIndex);
 
+
+				 Utils.from_contact=true;
 				Utils.GroupsPhones.add(phoneNo);
 				count.add(phoneNo);
+
 				adapter2.notifyDataSetChanged();
 
 				Log.e("List", phoneNo + "");

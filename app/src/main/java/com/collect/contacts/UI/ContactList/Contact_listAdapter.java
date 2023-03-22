@@ -65,8 +65,21 @@ public class Contact_listAdapter extends RecyclerView.Adapter<Contact_listAdapte
     holder.check_contact_item.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
         @Override
         public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-            Utils.selected_items_phones.add(Contact.get(position).getPhone());
-            Log.d("selected_items_phones","---------" + Contact.get(position).getPhone());
+
+
+            if(holder.check_contact_item.isChecked()){
+                Utils.selected_items_phones.add(Contact.get(position).getPhone());
+
+
+            }
+            else
+            {
+                Utils.selected_items_phones.remove(Contact.get(position).getPhone());
+                Log.d("selected_items_phones","---------" + Contact.get(position).getPhone());
+
+            }
+
+
         }
     });
     }

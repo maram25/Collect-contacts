@@ -139,14 +139,13 @@ public class HomeFragment extends Fragment {
 	}
 
 	private void Actions() {
-
 		 mTextEditorWatcher = new TextWatcher() {
 			public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 			}
 
 			public void onTextChanged(CharSequence s, int start, int before, int count) {
 				//This sets a textview to the current length
-				//SMSTextView.setTextAlignment(250-s.length());
+				SMSTextView.setTextAlignment(250-s.length());
 				if (s.equals('\t') ) {
 					Log.d("tab","---------" );
 
@@ -159,10 +158,15 @@ public class HomeFragment extends Fragment {
 		};
 
 		 ///// close emoji  from KP
-
 		SMSEditText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
-
 		SMSEditText.addTextChangedListener(mTextEditorWatcher);
+		 if (SMSTextView.getTextAlignment()=='\t')
+		 {
+
+		 }
+
+		Utils.SMS=SMSEditText.getText().toString();
+
 
 
 		sender.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener() {
@@ -178,13 +182,14 @@ public class HomeFragment extends Fragment {
 			@Override
 			public void onClick(View view) {
 
-				 if (Utils.Sender==null|| SMSEditText== null)
+				 if (Utils.Sender==null|| Utils.SMS== null)
 				 {
 					 Toast.makeText(getContext(), "check for choose user sender and add SMS", Toast.LENGTH_LONG).show();
 
-				 }else
-				 	 Utils.SMS=SMSEditText.getText().toString();
-			     	((MainActivity) getActivity()).goToFragment(new ContactListFragment());
+				 }else {
+					 ((MainActivity) getActivity()).goToFragment(new ContactListFragment());
+					  StartProgress();
+				 }
 			}
 		});
 		contacts.setOnClickListener(new View.OnClickListener() {

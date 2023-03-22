@@ -30,14 +30,10 @@ public class AddPhoneAdapter extends RecyclerView.Adapter<AddPhoneAdapter.ViewHo
 	MainActivity mainActivity;
 	FragmentManager fragmentManager;
 	Context context;
-	private ArrayList<String> Phones = new ArrayList<>();
-   String Time;
-	int k = 0;
-	int mHour;
-	int mMinute;
-	String date_time = "";
+	private List<String> Phones = new ArrayList<>();
 
-	public AddPhoneAdapter(Context context, ArrayList<String> names, FragmentManager fragmentManager) {
+
+	public AddPhoneAdapter(Context context, List<String> names, FragmentManager fragmentManager) {
 		this.Phones = names;
 		this.context = context;
 		this.fragmentManager = fragmentManager;
@@ -54,39 +50,52 @@ public class AddPhoneAdapter extends RecyclerView.Adapter<AddPhoneAdapter.ViewHo
 	@Override
 	public void onBindViewHolder(@NonNull AddPhoneAdapter.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
 
+		if (Utils.from_contact)
+		{
+			for (int i = 0; i < Utils.GroupsPhones.size(); i++) {}
+				holder.Phone.setText(Utils.GroupsPhones.get(position));
+				Utils.from_contact = false;
+			//}
+		}
+
 		holder.delete.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
 				Phones.remove(position);
 				notifyItemRemoved(position);
 				notifyItemRangeChanged(position, Phones.size());
-//					 Utils.GroupsPhones.remove(position);
-//
-
+				// Utils.GroupsPhones.remove(position);
 			}
 		});
-		holder.Phone.setText(Phones.get(position));
-		holder.Phone.addTextChangedListener(new TextWatcher() {
+
+		holder.Phone.setOnClickListener(new View.OnClickListener() {
 			@Override
-			public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+			public void onClick(View view) {
 
-			}
-
-			@Override
-			public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-			}
-
-			@Override
-			public void afterTextChanged(Editable editable) {
-				Phones.add(editable.toString());
-				Utils.GroupsPhones.add(editable.toString());
+				Phones.add(holder.Phone.getText().toString());
+				Utils.GroupsPhones.add(holder.Phone.toString());
 				Log.e("Phone", (holder.Phone.getText()) + "");
 
 			}
 		});
-//		 Utils.GroupsPhones.add(String.valueOf(holder.Phone.getText()));
-//		Log.e("Phone", (holder.Phone.getText()) + "");
+//		holder.Phone.addTextChangedListener(new TextWatcher() {
+//			@Override
+//			public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+//
+//			}
+//
+//			@Override
+//			public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+//
+//			}
+//
+//			@Override
+//			public void afterTextChanged(Editable editable) {
+//				Phones.add(editable.toString());
+//				Utils.GroupsPhones.add(holder.Phone.toString());
+//				Log.e("Phone", (holder.Phone.getText()) + "");
+//			}
+//		});
 
 
 	}

@@ -29,6 +29,7 @@ import com.collect.contacts.R;
 import com.collect.contacts.UI.ContactList.ContactListFragment;
 import com.collect.contacts.UI.ContactList.Contact_listAdapter;
 import com.collect.contacts.UI.GroupsStore.GroupsStoreFragment;
+import com.collect.contacts.UI.Home.HomeFragment;
 import com.collect.contacts.Utils;
 
 import java.util.List;
@@ -41,7 +42,9 @@ public class GroupsFragment extends Fragment {
 	RelativeLayout Progress;
 	ConstraintLayout Layout;
 	TextView AddGroup,SendSMS;
-	 RecyclerView  GroupsList;
+	TextView checklist_contact;
+	 GroupsAdapter adapter2;
+	RecyclerView  GroupsList;
 	public static GroupsFragment newInstance() {
 		return new GroupsFragment();
 	}
@@ -81,7 +84,7 @@ public class GroupsFragment extends Fragment {
 			public void onChanged(List<GroupsModel.Data.Groups> groups) {
 				Log.d("groups ","---------" + groups.size());
 
-				final GroupsAdapter adapter2 = new GroupsAdapter(getActivity().getSupportFragmentManager(), getContext(), groups);
+				 adapter2 = new GroupsAdapter(getActivity().getSupportFragmentManager(), getContext(), groups);
 				LinearLayoutManager layoutManager2 = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
 				GroupsList.setLayoutManager(layoutManager2);
 				GroupsList.setHasFixedSize(true);
@@ -96,7 +99,7 @@ public class GroupsFragment extends Fragment {
 			@SuppressLint("NotifyDataSetChanged")
 			@Override
 			public void onClick(View view) {
-				Log.e("alllist", true+ "");
+				Log.e("checkList", true+ "");
 				Utils.checkList=true;
 				adapter2.notifyDataSetChanged();
 
@@ -108,9 +111,29 @@ public class GroupsFragment extends Fragment {
 		SendSMS.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
+				if (Utils.Sender==null|| Utils.SMS== null)
+				{
+					Toast.makeText(getContext(), " please choose user sender and add SMS", Toast.LENGTH_LONG).show();
 
-				//mViewModel.SendContact(Utils.Sender,Utils.Phones,Utils.SMS);
-				mViewModel.SendContact(Utils.Sender, Utils.Phones,Utils.SMS);
+					((MainActivity) getActivity()).goToFragment(new HomeFragment());
+
+
+				}else
+				{
+
+					if (Utils.checkList) {
+						//mViewModel.SendContact(Utils.Sender, Utils.GroupsPhones, Utils.SMS);
+						Utils.checkList = false;
+						Log.e("cheGroupsPhonesckList",  Utils.GroupsPhones.size()+ "");
+					}
+					else{
+						Log.e("selected_itemsGroupsPhones",  Utils.selected_itemsGroupsPhones.size()+ "");
+
+						//mViewModel.SendContact(Utils.Sender,Utils.selected_itemsGroupsPhones, Utils.SMS);
+					}
+				}
+
+
 			}
 		});
 
@@ -130,6 +153,7 @@ public class GroupsFragment extends Fragment {
 		AddGroup = root.findViewById(R.id.AddGroup);
 		GroupsList = root.findViewById(R.id.GroupsList);
 		SendSMS = root.findViewById(R.id.SendSMS);
+		checklist_contact = root.findViewById(R.id.checklist_contact);
 	}
 	public void StartProgress() {
 		Progress.setVisibility(View.VISIBLE);

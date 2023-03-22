@@ -89,6 +89,7 @@
             android:layout_weight="1"
             android:gravity="center_vertical"
             android:textColor="@color/white"
+            android:padding="@dimen/_5ssp"
             android:drawableTint="@color/white"
             android:tint="@color/white"
             tools:ignore="UseAppTint">

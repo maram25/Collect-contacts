@@ -80,6 +80,8 @@ public class MainActivity extends AppCompatActivity {
 					break;
 				case R.id.Groups:
 					goToFragment(new GroupsFragment());
+					break;
+
 				case R.id.setting:
 					goToFragment(new settingFragment());
 

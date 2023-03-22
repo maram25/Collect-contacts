@@ -111,6 +111,7 @@ public class ContactListFragment extends Fragment {
 			list_item.setLayoutManager(layoutManager2);
 			list_item.setHasFixedSize(true);
 			list_item.setAdapter(adapter2);
+			 EndProgress();
 
 			//mViewModel.SendContact();
 			Log.e("List", contactList.size() + "");
@@ -118,6 +119,7 @@ public class ContactListFragment extends Fragment {
 		} else {
 			// you do not have permission go request runtime permissions
 			RequestPermission(getActivity(), permissons, REQUEST_RUNTIME_PERMISSION);
+			 EndProgress();
 		}
 
 
@@ -145,6 +147,9 @@ public class ContactListFragment extends Fragment {
 					 //mViewModel.SendContact(Utils.Sender,Utils.Phones,Utils.SMS);
 					 mViewModel.SendContact(Utils.Sender, contact, Utils.SMS);
 					 alllist = false;
+					 Utils.checkList=false;
+
+
 				 }
 			 	 else{
 					 mViewModel.SendContact(Utils.Sender,Utils.selected_items_phones, Utils.SMS);

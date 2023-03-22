@@ -21,10 +21,12 @@
             android:layout_height="wrap_content">
         </include>
     </RelativeLayout>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/Layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent">
 
 
         <ScrollView
@@ -32,116 +34,112 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_constraintTop_toTopOf="parent">
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-
-            <TextView
-                android:id="@+id/whishLIstTitle"
-                android:layout_width="150dp"
-                android:layout_height="@dimen/_30ssp"
-                android:layout_margin="@dimen/_30ssp"
-                android:gravity="center"
-                android:text="@string/Groups"
-                android:layout_weight="1"
-             android:background="@drawable/curved_solid_main_color"
-                android:textColor="@color/white"
-                android:backgroundTint="@color/bink"
-                android:fontFamily="@font/noor_bold"
-                android:textSize="@dimen/_15ssp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-            </TextView>
-
-            <LinearLayout
-                android:id="@+id/linearLayout"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_35ssp"
-                android:layout_weight="2"
-                android:layout_marginLeft="@dimen/_15ssp"
-                android:layout_marginRight="@dimen/_15ssp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:padding="@dimen/_5ssp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/whishLIstTitle">
-
+                android:layout_height="match_parent">
                 <TextView
-                    android:id="@+id/AddGroup"
+                    android:id="@+id/whishLIstTitle"
+                    android:layout_width="150dp"
+                    android:layout_height="@dimen/_30ssp"
+                    android:layout_margin="@dimen/_30ssp"
+                    android:layout_weight="1"
+                    android:background="@drawable/curved_solid_main_color"
+                    android:backgroundTint="@color/bink"
+                    android:fontFamily="@font/noor_bold"
+                    android:gravity="center"
+                    android:text="@string/Groups"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_15ssp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                </TextView>
+
+                <LinearLayout
+                    android:id="@+id/linearLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_35ssp"
+                    android:layout_marginLeft="@dimen/_15ssp"
+                    android:layout_marginTop="@dimen/_5ssp"
+                    android:layout_marginRight="@dimen/_15ssp"
+                    android:layout_weight="2"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/_5ssp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/whishLIstTitle">
+
+                    <TextView
+                        android:id="@+id/AddGroup"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:drawableStart="@drawable/ic_baseline_create_24"
+                        android:drawableTint="@color/bink"
+                        android:text="@string/AddGroup"
+                        android:textColor="@color/bink"
+                        android:textSize="@dimen/_10ssp">
+
+                    </TextView>
+
+
+                    <TextView
+
+                        android:id="@+id/checklist_contact"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:drawableEnd="@drawable/ic_baseline_checklist_rtl_24"
+                        android:drawableTint="@color/bink"
+                        android:gravity="center_vertical"
+                        android:text="@string/select_all"
+                        android:textColor="@color/bink"
+                        android:tint="@color/white"
+                        tools:ignore="UseAppTint">
+
+                    </TextView>
+
+
+                </LinearLayout>
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/GroupsList"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_weight="1"
-                    android:drawableStart="@drawable/ic_baseline_create_24"
-                    android:drawableTint="@color/bink"
-                    android:text="@string/AddGroup"
-                    android:textColor="@color/bink"
-                    android:textSize="@dimen/_10ssp">
+                    android:layout_marginTop="@dimen/_20ssp"
+                    android:layout_marginBottom="@dimen/_20ssp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
-                </TextView>
-
+                </androidx.recyclerview.widget.RecyclerView>
 
                 <TextView
-
-                    android:id="@+id/checklist_contact"
+                    android:id="@+id/SendSMS"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:drawableEnd="@drawable/ic_baseline_checklist_rtl_24"
-                    android:drawableTint="@color/bink"
-                    android:gravity="center_vertical"
-                    android:text="@string/select_all"
-                    android:textColor="@color/bink"
-                    android:tint="@color/white"
-                    tools:ignore="UseAppTint">
+                    android:layout_height="@dimen/_35ssp"
+                    android:layout_margin="@dimen/_40ssp"
+                    android:background="@drawable/curved_solid_main_color"
+                    android:backgroundTint="@color/bink"
+                    android:gravity="center"
+                    android:padding="3dp"
+                    android:text="@string/Send_SMS"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_15ssp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/GroupsList">
 
                 </TextView>
-
-
-            </LinearLayout>
-
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/GroupsList"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_20ssp"
-            android:layout_marginBottom="297dp"
-            android:paddingBottom="@dimen/_30ssp"
-            app:layout_constraintBottom_toTopOf="@+id/sendsms"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout">
-
-        </androidx.recyclerview.widget.RecyclerView>
-
-        <TextView
-            android:id="@+id/sendsms"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_35ssp"
-            android:layout_margin="@dimen/_40ssp"
-            android:background="@drawable/curved_solid_main_color"
-            android:backgroundTint="@color/bink"
-            android:gravity="center"
-            android:padding="3dp"
-            android:text="@string/Send_SMS"
-            android:textColor="@color/white"
-            android:textSize="@dimen/_15ssp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent">
-
-        </TextView>
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

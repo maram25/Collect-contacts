@@ -55,7 +55,7 @@
         <CheckBox
             android:id="@+id/check_contact_item"
             android:layout_width="match_parent"
-            android:layout_weight="1"
+            android:layout_weight="1.5"
             android:layout_height="wrap_content"
             android:buttonTint="@color/bink"
      />
